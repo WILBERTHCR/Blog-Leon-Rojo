@@ -845,14 +845,8 @@ tray();
       x.fillStyle=`rgba(255,${80+Math.random()*90|0},40,${p.l})`;x.shadowColor='#ff3b1f';x.shadowBlur=8;x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill()}
     raf=requestAnimationFrame(loop)}
   if(!reduce)loop();
-  function sound(){try{const A=new (window.AudioContext||window.webkitAudioContext)(),t=A.currentTime,dur=1.3;
-    const buf=A.createBuffer(1,A.sampleRate*dur,A.sampleRate),d=buf.getChannelData(0);let last=0;for(let i=0;i<d.length;i++){const w=Math.random()*2-1;last=(last+.04*w)/1.04;d[i]=last*3.2}
-    const n=A.createBufferSource();n.buffer=buf;const lp=A.createBiquadFilter();lp.type='lowpass';lp.frequency.setValueAtTime(900,t);lp.frequency.exponentialRampToValueAtTime(220,t+dur);
-    const o=A.createOscillator();o.type='sawtooth';o.frequency.setValueAtTime(110,t);o.frequency.exponentialRampToValueAtTime(55,t+dur);
-    const lfo=A.createOscillator(),lg=A.createGain();lfo.frequency.value=28;lg.gain.value=14;lfo.connect(lg);lg.connect(o.frequency);
-    const og=A.createGain();og.gain.value=.35;const ws=A.createWaveShaper(),c=new Float32Array(256);for(let i=0;i<256;i++){const k=i/128-1;c[i]=Math.tanh(k*4)}ws.curve=c;
-    const g=A.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.9,t+.08);g.gain.exponentialRampToValueAtTime(.001,t+dur);
-    n.connect(lp);o.connect(og);og.connect(lp);lp.connect(ws);ws.connect(g);g.connect(A.destination);n.start(t);o.start(t);lfo.start(t);n.stop(t+dur);o.stop(t+dur);lfo.stop(t+dur)}catch(e){}}
+  const roarA=new Audio('/audio/rugido.mp3');roarA.preload='auto';roarA.volume=.75;
+  function sound(){try{roarA.currentTime=0;const p=roarA.play();if(p&&p.catch)p.catch(()=>{})}catch(e){}}
   function close(){try{sessionStorage.setItem('arji-intro','1')}catch(e){}intro.classList.add('out');document.body.style.overflow='';setTimeout(()=>{cancelAnimationFrame(raf);intro.remove();$('#flash').remove()},800)}
   let done=false;
   $('#lionbtn').onclick=()=>{if(done)return;done=true;sound();if(navigator.vibrate)try{navigator.vibrate([60,40,120])}catch(e){}
