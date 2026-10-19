@@ -9,6 +9,7 @@ El servidor (cPanel) hace `git pull` cada hora y copia `blog/`, `redes/`, `produ
 - `tools/build.py` — genera `blog/` y `sitemap.xml`. **Siempre correrlo antes de hacer commit.**
 - `productos.md` — productos, imágenes disponibles y presentaciones reales. Usar SOLO estos datos.
 - `blog/` y `sitemap.xml` — salida generada (no editar a mano). `blog/latest.json` alimenta la sección "Guías prácticas" de la página principal.
+- `site/data.js` — catálogo y reseñas de la página principal (window.GOOGLE = calificación; window.REVIEWS = reseñas reales copiadas de Google, sin inventar).
 - `site/index.html` — página principal de quimicasarji.com (el servidor la copia a public_html). Editar solo si se pide un cambio en la web.
 - `productos/` — páginas de producto (quimicasarji.com/productos/<slug>/), generadas con `python3 tools/build_products.py` desde `catalogo.json` + `fichas/<id>.json` (fuente: `tools/fichas_src.py`). Fotos limpias en `productos_img/` (`tools/clean_imgs.py`). Correr build_products antes de build.py para que el sitemap las incluya. No editar `productos/` a mano.
 - `redes/` — imágenes de las publicaciones de Facebook/Instagram, publicadas en quimicasarji.com/redes/.
