@@ -65,7 +65,7 @@ details p{margin:10px 0 0;color:#E4DCD6}
 .guide{display:block;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:10px;padding:14px 16px;text-decoration:none;margin:12px 0}
 .guide b{display:block;font-family:var(--f-label);text-transform:uppercase;letter-spacing:.04em;font-size:1.1rem}
 .guide small{color:var(--muted)}
-main.prod{max-width:1080px}
+main.prod{max-width:67.5rem}
 @media (max-width:760px){.phero{grid-template-columns:1fr;gap:18px}.rel{grid-template-columns:repeat(2,minmax(0,1fr))}}
 '''
 
