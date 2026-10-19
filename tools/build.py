@@ -33,5 +33,9 @@ json.dump([{k:p[k] for k in ('slug','title','desc','img','date')} for p in POSTS
 last=max(p['date'] for p in POSTS)
 u=[f'  <url><loc>https://quimicasarji.com/</loc><lastmod>{last}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>',f'  <url><loc>https://quimicasarji.com/blog/</loc><lastmod>{last}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>']
 u+=[f'  <url><loc>https://quimicasarji.com/blog/{p["slug"]}/</loc><lastmod>{p["date"]}</lastmod><priority>0.7</priority></url>' for p in POSTS]
+pu=os.path.join(ROOT,'productos','urls.json')
+if os.path.exists(pu):
+    u.append(f'  <url><loc>https://quimicasarji.com/productos/</loc><lastmod>{last}</lastmod><priority>0.8</priority></url>')
+    u+=[f'  <url><loc>{x}</loc><priority>0.7</priority></url>' for x in json.load(open(pu))]
 open(os.path.join(ROOT,'sitemap.xml'),'w',encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+'\n'.join(u)+'\n</urlset>\n')
 print('ok',len(POSTS))

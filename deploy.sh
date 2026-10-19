@@ -5,5 +5,6 @@ git pull -q origin main || exit 1
 mkdir -p "$HOME/public_html/blog" "$HOME/public_html/redes"
 cp -rf blog/. "$HOME/public_html/blog/"
 cp -rf redes/. "$HOME/public_html/redes/"
+[ -d productos ] && mkdir -p "$HOME/public_html/productos" && cp -rf productos/. "$HOME/public_html/productos/"
 cp -f sitemap.xml "$HOME/public_html/sitemap.xml"
 [ -f site/index.html ] && cp -f site/index.html "$HOME/public_html/index.html"

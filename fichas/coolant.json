@@ -1,0 +1,20 @@
+{
+ "intro": "El Coolant León Rojo es un refrigerante para el sistema de enfriamiento del motor. Se usa en radiadores de carros, talleres y flotillas.",
+ "pasos": [
+  "Revisá siempre con el motor frío: nunca abrás el radiador caliente.",
+  "Verificá el nivel en el radiador o en el depósito.",
+  "Agregá el coolant hasta el nivel que indica el vehículo.",
+  "Cerrá bien la tapa y revisá que no haya fugas."
+ ],
+ "seguridad": "Nunca abrás el radiador con el motor caliente. No es para tomar: mantenelo fuera del alcance de niños y mascotas. Leé la etiqueta antes de usar.",
+ "faq": [
+  [
+   "¿Se puede usar agua en vez de coolant?",
+   "El coolant está hecho para el sistema de enfriamiento del motor. Para el tipo que pide tu carro, revisá el manual del vehículo."
+  ],
+  [
+   "¿En qué presentación viene?",
+   "Viene en galón."
+  ]
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "intro": "El Cloro León Rojo es hipoclorito de sodio para desinfectar superficies, pisos y blanquear la ropa. Viene en versión doméstica al 3% y 4% y en versión industrial al 12%.",
+ "pasos": [
+  "Ventilá el lugar y ponete guantes.",
+  "Diluilo en agua según lo que indica la etiqueta para cada uso.",
+  "Aplicalo en pisos y superficies, o agregalo al lavado de ropa blanca.",
+  "Enjuagá con agua cuando la etiqueta lo indique."
+ ],
+ "seguridad": "Nunca lo mezclés con ácidos, vinagre, amoníaco, desatoradores ni otros productos: se forman gases tóxicos. Usá guantes y ventilación, no lo uses en ropa de color y mantenelo fuera del alcance de niños. Leé siempre la etiqueta.",
+ "faq": [
+  [
+   "¿Qué diferencia hay entre el 3%, 4% y 12%?",
+   "El 3% y el 4% son de uso doméstico. El 12% es industrial, de mayor concentración, y requiere más cuidado al manipularlo."
+  ],
+  [
+   "¿Lo puedo mezclar con vinagre o desinfectante?",
+   "No. El cloro nunca se mezcla con otros productos de limpieza."
+  ]
+ ],
+ "blog": "usos-del-vinagre-de-limpieza"
+}

@@ -1,0 +1,21 @@
+{
+ "intro": "El Polish en Pasta León Rojo es una pasta pulidora para pintura automotriz: restaura el brillo de la pintura opaca y elimina microarañazos. Lo usan talleres de enderezado y pintura, detallado y lavacar.",
+ "pasos": [
+  "Lavá y secá bien la zona a pulir.",
+  "Trabajá a la sombra, con la pintura fría.",
+  "Aplicá un poco de pasta con un paño, esponja o pulidora.",
+  "Puli con movimientos circulares hasta que salga el brillo.",
+  "Retirá el residuo con un paño de microfibra limpio."
+ ],
+ "seguridad": "Leé la etiqueta antes de usar. Usá guantes, no lo mezclés con otros productos químicos y mantenelo fuera del alcance de niños y mascotas.",
+ "faq": [
+  [
+   "¿Cuál es la diferencia entre polish y cera?",
+   "El polish pule y corrige la superficie (brillo y microarañazos). La cera se aplica después y deja una capa de protección y brillo."
+  ],
+  [
+   "¿Sirve para quitar rayones profundos?",
+   "Está hecho para microarañazos y pintura opaca. Un rayón que llegó a la base o al metal necesita trabajo de pintura."
+  ]
+ ]
+}

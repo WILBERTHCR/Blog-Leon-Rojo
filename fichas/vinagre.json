@@ -1,0 +1,12 @@
+{
+ "intro": "El Vinagre de Limpieza 3.5% León Rojo es un limpiador multiusos para el día a día: limpia, desengrasa y elimina malos olores en cocina, baño, vidrios y superficies. Viene en tres aromas: limón, naranja y manzana canela.",
+ "pasos": ["Rociá directamente sobre la superficie o aplicá con un paño o esponja.", "Dejá actuar unos minutos.", "Frotá o limpiá con un paño.", "Si hace falta, enjuagá con agua."],
+ "seguridad": "No lo mezclés con cloro ni hipoclorito de sodio: la mezcla libera un gas peligroso. No apto para consumo humano. Evitá usarlo en mármol, piedra caliza y superficies sensibles a los ácidos. Mantenelo fuera del alcance de los niños.",
+ "faq": [
+  ["¿Qué aromas hay?", "Limón, naranja y manzana canela."],
+  ["¿Qué presentaciones hay?", "Litro con atomizador y galón."],
+  ["¿Puedo usarlo con cloro?", "No. Nunca mezclés vinagre con cloro: juntos liberan un gas peligroso."],
+  ["¿Sirve para vidrios?", "Sí. Rocialo y secá con papel o un paño de microfibra."]
+ ],
+ "blog": "usos-del-vinagre-de-limpieza"
+}

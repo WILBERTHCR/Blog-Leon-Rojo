@@ -601,7 +601,7 @@ blockquote{margin:6px 0 18px;padding:14px 18px;border-left:4px solid var(--red);
       <div><h5>Pedidos por WhatsApp</h5><div class="contact"><span>8994-4763</span><button class="copy" data-copy="89944763">Copiar</button></div></div>
       <div><h5>Teléfono</h5><div class="contact"><span>2250-2064</span><button class="copy" data-copy="22502064">Copiar</button></div></div>
       <div><h5>Correo</h5><div class="contact"><span>qarjisa@hotmail.com</span><button class="copy" data-copy="qarjisa@hotmail.com">Copiar</button></div>
-        <h5 style="margin-top:18px">Redes</h5><div class="row" style="gap:14px"><a href="https://www.facebook.com/399162953463652" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/quimicasarji/" target="_blank" rel="noopener">Instagram</a><a href="/blog/">Blog</a></div></div>
+        <h5 style="margin-top:18px">Redes</h5><div class="row" style="gap:14px"><a href="https://www.facebook.com/399162953463652" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/quimicasarji/" target="_blank" rel="noopener">Instagram</a><a href="/blog/">Blog</a><a href="/productos/">Catálogo</a></div></div>
     </div>
     <div class="legal"><span>© 2026 Químicas Arji WGAC S.A. Todos los derechos reservados.</span><span>León Rojo® es una marca registrada.</span></div>
   </div>
@@ -643,6 +643,7 @@ blockquote{margin:6px 0 18px;padding:14px 18px;border-left:4px solid var(--red);
         <h3 id="mt"></h3>
         <p id="md"></p>
         <div><div class="lbl" style="margin-bottom:6px">Ideal para</div><ul id="muse"></ul></div>
+        <a id="mfull" href="#" style="font-family:var(--f-label);font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--hazard);text-decoration:none">Ver ficha completa: usos, cómo se usa y preguntas →</a>
         <div id="mpro" class="warn pro" hidden><svg class="i"><use href="#warn"/></svg><span>Uso industrial y exclusivo profesional. Usá equipo de protección personal y buena ventilación.</span></div>
         <div id="mwarn" class="warn" hidden><svg class="i"><use href="#warn"/></svg><span>Producto peligroso. Leé la etiqueta antes de usar y mantenelo fuera del alcance de los niños.</span></div>
         <div id="mvar" hidden><div class="lbl" style="margin-bottom:6px" id="mvarl">Aroma</div><div class="opts" id="mvars"></div></div>
@@ -758,11 +759,12 @@ $('#mStage').addEventListener('click',e=>{const b=e.target.closest('[data-a]');i
 function showPhoto(f){$('#mStage').hidden=true;$('#mimg').hidden=false;$('#mimg').src=IMG(f);$('#mTry').hidden=!cur.demo;
   [...$('#mthumbs').children].forEach(b=>b.setAttribute('aria-pressed',b.dataset.f===f))}
 function showDemo(){$('#mimg').hidden=true;$('#mTry').hidden=true;$('#mStage').hidden=false;[...$('#mthumbs').children].forEach(b=>b.setAttribute('aria-pressed',b.dataset.f==='try'));requestAnimationFrame(()=>mdemo.load(cur,selV))}
+function slugP(n){return n.normalize('NFKD').replace(/[^\x00-\x7f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')}
 function openP(id){cur=byId(id);selP=cur.pres[0];selV=cur.vars?cur.vars[0]:null;$('#mimg').alt=cur.n;
   $('#mthumbs').innerHTML=(cur.demo?'<button type="button" class="t-try" data-f="try">👆 Probar</button>':'')+(cur.img.length>1||cur.demo?cur.img.map(f=>`<button type="button" data-f="${f}" aria-label="Ver foto"><img src="${IMG(f)}" alt="" loading="lazy"></button>`).join(''):'');
   $('#mthumbs').hidden=!$('#mthumbs').children.length;showPhoto(cur.img[0]);
   $('#mcat').textContent=CATS[cur.c];$('#mt').textContent=cur.n;$('#md').textContent=cur.d;$('#muse').innerHTML=cur.u.map(x=>`<li>${x}</li>`).join('');
-  $('#mwarn').hidden=!cur.haz||cur.pro;$('#mpro').hidden=!cur.pro;$('#mvar').hidden=!cur.vars;$('#mvarl').textContent=VARL[cur.id]||'Opción';
+  $('#mfull').hidden=!!cur.pro;$('#mfull').href='/productos/'+slugP(cur.n)+'/';$('#mwarn').hidden=!cur.haz||cur.pro;$('#mpro').hidden=!cur.pro;$('#mvar').hidden=!cur.vars;$('#mvarl').textContent=VARL[cur.id]||'Opción';
   const rel=P.filter(p=>p.c===cur.c&&p.id!==cur.id).sort((a,b)=>(!!b.demo+!!b.star*2)-(!!a.demo+!!a.star*2)).slice(0,3);
   $('#mxs').innerHTML=rel.map(p=>`<button type="button" data-id="${p.id}"><img src="${IMG(p.img[0])}" alt=""><span>${p.n}</span></button>`).join('');
   opts();$('#mqty').value=1;$('#scrim').hidden=false;document.body.style.overflow='hidden';$('.modal').scrollTop=0;$('#mclose').focus()}
