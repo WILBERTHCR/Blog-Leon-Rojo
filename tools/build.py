@@ -29,6 +29,7 @@ for p in POSTS:
 cards=''.join(f'<a class="post" href="/blog/{p["slug"]}/"><img src="/img/p/{p["img"]}.jpg" alt="" loading="lazy"><div><span class="eyebrow">Guía práctica</span><h2>{p["title"]}</h2><p>{p["desc"]}</p></div></a>' for p in POSTS)
 h=HEAD.format(title='Blog León Rojo · Guías de limpieza y mantenimiento | Químicas Arji',desc='Guías prácticas para limpiar, destapar, desengrasar y mantener tu casa, taller o piscina con productos León Rojo.',slug='',ogt='Blog León Rojo',img='b1_14',ogtype='website',ld='',wa=wa('Hola Químicas Arji, quiero hacer un pedido.'))
 open(os.path.join(OUT,'index.html'),'w',encoding='utf-8').write(h+f'<main class="wrap"><section style="padding-top:40px"><span class="eyebrow">Blog León Rojo</span><h1>Guías prácticas</h1><p class="lead">Cómo resolver los problemas de limpieza y mantenimiento más comunes, con seguridad y sin desperdiciar producto.</p></section><div class="list">{cards}</div></main>'+FOOT)
+json.dump([{k:p[k] for k in ('slug','title','desc','img','date')} for p in POSTS[:6]],open(os.path.join(OUT,'latest.json'),'w',encoding='utf-8'),ensure_ascii=False)
 last=max(p['date'] for p in POSTS)
 u=[f'  <url><loc>https://quimicasarji.com/</loc><lastmod>{last}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>',f'  <url><loc>https://quimicasarji.com/blog/</loc><lastmod>{last}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>']
 u+=[f'  <url><loc>https://quimicasarji.com/blog/{p["slug"]}/</loc><lastmod>{p["date"]}</lastmod><priority>0.7</priority></url>' for p in POSTS]
