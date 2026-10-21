@@ -12,6 +12,9 @@ RewriteRule ^sobre-nosotros/?$ /#historia [R=301,NE,L]
 RewriteRule ^contactanos/?$ /#contacto [R=301,NE,L]
 RewriteRule ^m/.*$ / [R=301,L]
 
+# QR de las etiquetas: quimicasarji.com/q/<producto> -> página del producto (medido en Analytics)
+RewriteRule ^q/([a-z0-9-]+)/?$ /productos/$1/?utm_source=etiqueta&utm_medium=qr&utm_campaign=$1 [R=302,L]
+
 # Tienda vieja -> páginas de producto nuevas
 RewriteRule ^store/p48/ /productos/jabon-liquido-para-manos/ [R=301,L]
 RewriteRule ^store/p9/ /productos/creolina/ [R=301,L]
