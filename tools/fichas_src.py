@@ -209,7 +209,7 @@ F = {
   intro='La Masilla Acrílica León Rojo rellena grietas y fisuras en paredes antes de pintar, y sirve para resanes.',
   pasos=['Limpiá la grieta de polvo y partes sueltas.', 'Rellená con espátula, presionando bien.', 'Dejá secar según la etiqueta.', 'Lijá suave y pintá.'],
   seguridad='Evitá el contacto con los ojos y mantenela fuera del alcance de niños. Leé la etiqueta.',
-  faq=[['¿Se puede pintar encima?', 'Sí, se usa justamente para dejar la pared lista para pintar.'], ['¿En qué presentaciones viene?', 'En 1/8 y 1/4 de galón.']]),
+  faq=[['¿Se puede pintar encima?', 'Sí, se usa justamente para dejar la pared lista para pintar.'], ['¿En qué presentaciones viene?', 'En 1/16, 1/8 y 1/4 de galón.']]),
  'ocre': dict(
   intro='El Ocre León Rojo es un pigmento para dar color a pisos, pilas, paredes y posteos de concreto. Viene en rojo, azul, verde y negro.',
   pasos=['Medí el pigmento según la etiqueta y el tono que buscás.', 'Mezclalo bien con los materiales secos antes de agregar agua.', 'Prepará la mezcla de una sola vez para que el color quede parejo.', 'Aplicá y dejá curar como de costumbre.'],

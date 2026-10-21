@@ -45,7 +45,7 @@ Imagen = archivo en https://quimicasarji.com/img/p/<imagen>.jpg (ya existe en el
 | Arji Bond | Aditivo para repellos y concretos | `b6_19` | 1/4 galón, Galón |
 | Super Acril-800 | Aditivo acrílico para construcción | `b8_08` | 1/4 galón, Galón |
 | Tapagoteras en Pasta | Fácil aplicación, rápida y efectiva | `b8_09` | 1/16 galón, 1/4 galón |
-| Masilla Acrílica | Para grietas | `b3_03` | 1/8 galón, 1/4 galón |
+| Masilla Acrílica | Para grietas | `b3_03` | 1/16 galón, 1/8 galón, 1/4 galón |
 | Ocre | Pigmento para concreto, 4 colores | `b7_14` | 1 kilo |
 | Alquitrán | Preservante para postes y cercas | `b7_10` | Galón |
 | Cemento de Contacto | Fácil aplicación, adhesión inmediata | `b2_20` | 1/48 galón, 1/32 galón, 1/16 galón, 1/8 galón, 1/4 galón |
