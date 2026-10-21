@@ -106,7 +106,7 @@ F = {
   intro='El Limpiador de Azulejos León Rojo limpia azulejos y enchapes de baño y cocina, y elimina bacterias y moho de las juntas.',
   pasos=['Ponete guantes y ventilá el baño o la cocina.', 'Aplicá el producto según la etiqueta.', 'Dejalo actuar el tiempo que indica la etiqueta.', 'Restregá las juntas con un cepillo.', 'Enjuagá con abundante agua.'],
   seguridad='No lo mezclés con cloro ni con otros productos. Usá guantes y buena ventilación y mantenelo fuera del alcance de niños. Leé la etiqueta antes de usar.',
-  faq=[['¿Sirve para el moho de las juntas?', 'Sí, está hecho para eliminar bacterias y moho en azulejos y enchapes.'], ['¿En qué presentaciones viene?', 'En litro y galón.']]),
+  faq=[['¿Sirve para el moho de las juntas?', 'Sí, está hecho para eliminar bacterias y moho en azulejos y enchapes.'], ['¿En qué presentaciones viene?', 'En 1/2 litro, litro y galón.']]),
  'cristales': dict(
   intro='El Limpiador de Cristales León Rojo deja vidrios, ventanas, espejos, vitrinas y parabrisas limpios y sin marcas.',
   pasos=['Rociá el producto sobre el vidrio.', 'Limpiá con un paño de microfibra o papel.', 'Terminá con un paño seco para que no queden marcas.'],
@@ -204,7 +204,7 @@ F = {
   intro='El Tapagoteras en Pasta León Rojo sella goteras en techos, canoas y uniones de lámina. Es de fácil aplicación, rápido y efectivo.',
   pasos=['Trabajá en seco: limpiá y secá la zona de la gotera.', 'Retirá óxido y partes sueltas.', 'Aplicá la pasta con espátula o brocha, cubriendo bien la unión o el hueco.', 'Dejá secar según la etiqueta antes de que llueva.'],
   seguridad='Usá guantes. Tené cuidado al trabajar en techos: usá escalera firme y no subás solo ni con lluvia. Mantenelo fuera del alcance de niños.',
-  faq=[['¿Se puede aplicar con lluvia?', 'No, la superficie debe estar limpia y seca.'], ['¿En qué presentaciones viene?', 'En 1/16 y 1/4 de galón.']]),
+  faq=[['¿Se puede aplicar con lluvia?', 'No, la superficie debe estar limpia y seca.'], ['¿En qué presentaciones viene?', 'En 1/16, 1/8 y 1/4 de galón.']]),
  'masilla': dict(
   intro='La Masilla Acrílica León Rojo rellena grietas y fisuras en paredes antes de pintar, y sirve para resanes.',
   pasos=['Limpiá la grieta de polvo y partes sueltas.', 'Rellená con espátula, presionando bien.', 'Dejá secar según la etiqueta.', 'Lijá suave y pintá.'],
