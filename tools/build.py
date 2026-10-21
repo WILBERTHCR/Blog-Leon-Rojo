@@ -10,8 +10,12 @@ HEAD='''<!doctype html><html lang="es-CR"><head><meta charset="utf-8"><meta name
 <link rel="icon" href="/img/logo.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap"><link rel="stylesheet" href="/blog/blog.css">{ld}<script async src="https://www.googletagmanager.com/gtag/js?id=G-HB5PXSGNYF"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','G-HB5PXSGNYF');document.addEventListener('click',function(e){{var a=e.target.closest&&e.target.closest('a[href*="wa.me"]');if(a)gtag('event',a.id==='tsend'?'pedido_whatsapp':'whatsapp_click',{{link_url:a.href.split('?')[0],page_path:location.pathname}})}},true)</script></head><body>
 <header><div class="wrap"><a class="brand" href="/"><img src="/img/logo.png" alt=""><span><b>QUÍMICAS ARJI</b><small>León Rojo</small></span></a><nav class="navl"><a href="/#productos">Productos</a><a href="/blog/">Blog</a><a href="/#contacto">Contacto</a></nav><a class="btn btn-wa" href="{wa}" target="_blank" rel="noopener">Pedir</a></div></header>'''
 FOOT='''<footer><div class="wrap">© 2026 Químicas Arji WGAC S.A. · Fabricantes de León Rojo desde hace 29 años · Desamparados, San José · Tel. 2250-2064 · WhatsApp 8994-4763 · <a href="/">quimicasarji.com</a></div></footer></body></html>'''
+CAT=json.load(open(os.path.join(ROOT,'catalogo.json'),encoding='utf-8'))['products']
+import unicodedata,re as _re
+def _slug(t): return _re.sub(r'[^a-z0-9]+','-',unicodedata.normalize('NFKD',t).encode('ascii','ignore').decode().lower()).strip('-')
+PSLUG={p['img'][0]:_slug(p['n']) for p in CAT if not p.get('pro')}
 def cta(img,name,txt):
-    return f'''<div class="cta"><img src="/img/p/{img}.jpg" alt="{name} León Rojo"><div><h3>{name}</h3><p>{txt}</p><div class="row"><a class="btn btn-wa" target="_blank" rel="noopener" href="{wa('Hola Químicas Arji, quiero pedir '+name+'.')}">Pedir por WhatsApp</a><a class="btn btn-red" href="/#productos">Ver catálogo</a></div></div></div>'''
+    return f'''<div class="cta"><img src="/img/p/{img}.jpg" alt="{name} León Rojo"><div><h3>{name}</h3><p>{txt}</p><div class="row"><a class="btn btn-wa" target="_blank" rel="noopener" href="{wa('Hola Químicas Arji, quiero pedir '+name+'.')}">Pedir por WhatsApp</a><a class="btn btn-red" href="{'/productos/'+PSLUG[img]+'/' if img in PSLUG else '/productos/'}">Ver ficha del producto</a></div></div></div>'''
 
 POSTS=json.load(open(os.path.join(ROOT,'posts.json'),encoding='utf-8'))
 POSTS.sort(key=lambda p:p['date'],reverse=True)
