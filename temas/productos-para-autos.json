@@ -1,0 +1,43 @@
+{
+ "slug": "productos-para-autos",
+ "h1": "Productos para autos y lavacar",
+ "title": "Productos para autos y lavacar en Costa Rica | León Rojo",
+ "sub": "Shampoo, polish, ceras, llantas, aluminio e interiores",
+ "desc": "Productos León Rojo para lavacar y detallado: shampoo para autos, polish, cera, abrillantador de llantas, limpiador de aluminio y aromatizantes.",
+ "ids": [
+  "shampoo",
+  "polish",
+  "cerapasta",
+  "ceraliquidaauto",
+  "restaurador",
+  "llantilux80",
+  "llantilux1000",
+  "abrillantador",
+  "alux",
+  "aromatizante"
+ ],
+ "intro": "<p>Todo lo que un lavacar, un taller de detallado o cualquier persona necesita para dejar el carro como nuevo: lavado, pulido, encerado, llantas, plásticos, interiores y aroma. Línea completa León Rojo, fabricada en Costa Rica.</p>",
+ "tips": [
+  "1. Lavado: Shampoo para Autos.",
+  "2. Pulido de pintura opaca o con microarañazos: Polish en Pasta.",
+  "3. Protección y brillo: Cera en Pasta o Cera Líquida (rápida, en atomizador).",
+  "4. Llantas negras y brillantes: Llantilux-80 (diario) o Llantilux-1000 (alto poder).",
+  "5. Plásticos negros exteriores: Restaurador de Partes Negras. Interiores: Abrillantador de Superficies.",
+  "6. Aros y cajones de aluminio: ALUX-500. Para terminar: Aromatizante, en 10 aromas."
+ ],
+ "seguridad": "Trabajá a la sombra y con la carrocería fría. El ALUX-500 se usa con guantes y lentes y no se aplica sobre pintura ni vidrio. Leé siempre la etiqueta de cada producto.",
+ "faq": [
+  [
+   "¿Primero polish o cera?",
+   "Primero se pule con el Polish en Pasta y luego se protege con la cera."
+  ],
+  [
+   "¿Cuál Llantilux escojo?",
+   "El Llantilux-80 para uso diario; el Llantilux-1000 es la versión de alto poder para lavacar y detallado profesional."
+  ],
+  [
+   "¿Qué aromas tiene el aromatizante?",
+   "Fresa, Fresita, Manzana Canela, Cherry, Tuttifrutti, Fresa Mora, Herbal Fruit, Vainilla, Coco y New Car."
+  ]
+ ]
+}

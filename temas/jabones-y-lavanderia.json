@@ -1,0 +1,35 @@
+{
+ "slug": "jabones-y-lavanderia",
+ "h1": "Jabones y lavandería",
+ "title": "Detergente, suavizante y jabón líquido en Costa Rica | León Rojo",
+ "sub": "Ropa, manos y vajillas",
+ "desc": "Detergente líquido para ropa, suavizante de telas, jabón para manos y jabón para vajillas León Rojo, en litro y galón.",
+ "ids": [
+  "detergente",
+  "suavizante",
+  "jabonmanos",
+  "jabonvajillas"
+ ],
+ "intro": "<p>Para la casa, sodas, restaurantes, hoteles y lavanderías: la línea de jabones y lavandería León Rojo, en presentaciones que rinden.</p>",
+ "tips": [
+  "Ropa en lavadora o a mano: Detergente Líquido para Ropa.",
+  "Último enjuague: Suavizante de Telas (azul, rosado y morado).",
+  "Baños, oficinas y dispensadores: Jabón Líquido para Manos.",
+  "Platos y ollas: Jabón Líquido para Vajillas, en galón."
+ ],
+ "seguridad": "Evitá el contacto con los ojos, no los mezclés con cloro y mantenelos fuera del alcance de niños.",
+ "faq": [
+  [
+   "¿El detergente sirve para lavar a mano?",
+   "Sí, para lavadora y lavado a mano."
+  ],
+  [
+   "¿Qué variedades de suavizante hay?",
+   "Azul, rosado y morado."
+  ],
+  [
+   "¿El jabón de manos sirve para dispensadores?",
+   "Sí, el galón es ideal para rellenar dispensadores."
+  ]
+ ]
+}

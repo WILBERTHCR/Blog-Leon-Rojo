@@ -1,0 +1,42 @@
+{
+ "slug": "productos-de-limpieza",
+ "h1": "Productos de limpieza",
+ "title": "Productos de limpieza para casa y negocio en Costa Rica | León Rojo",
+ "sub": "Vinagre de limpieza, cloro, desinfectante y limpiadores",
+ "desc": "Productos de limpieza León Rojo hechos en Costa Rica: vinagre de limpieza, cloro, desinfectante, limpiador de azulejos y cristales, ceras para pisos.",
+ "ids": [
+  "vinagre",
+  "cloro",
+  "desinfectante",
+  "creolina",
+  "azulejos",
+  "cristales",
+  "ceramica",
+  "cerapisos"
+ ],
+ "blog": "usos-del-vinagre-de-limpieza",
+ "intro": "<p>Para la limpieza de la casa, el comercio, la oficina o la finca, León Rojo tiene un producto para cada superficie: multiusos, desinfectantes, limpiadores para baño y vidrio, y ceras para dejar los pisos brillantes. Todos fabricados en Costa Rica por Químicas Arji desde hace 29 años.</p>",
+ "tips": [
+  "Limpieza diaria y malos olores: Vinagre de Limpieza 3.5% (limón, naranja o manzana canela).",
+  "Desinfectar y blanquear: Cloro doméstico 3% o 4%, o industrial 12%.",
+  "Pisos con aroma: Desinfectante, en 9 aromas.",
+  "Corrales, establos y desagües: Creolina.",
+  "Baños y moho: Limpiador de Azulejos. Vidrios: Limpiador de Cristales.",
+  "Brillo en pisos: Abrillantador de Cerámica y Cera Líquida para Pisos."
+ ],
+ "seguridad": "Nunca mezclés productos de limpieza entre sí: el cloro con vinagre, ácidos o desinfectantes libera gases tóxicos. Usá guantes, ventilá y mantené todo fuera del alcance de niños. Leé siempre la etiqueta.",
+ "faq": [
+  [
+   "¿Puedo mezclar vinagre con cloro?",
+   "No, nunca. La mezcla libera un gas peligroso."
+  ],
+  [
+   "¿Qué aromas tiene el vinagre de limpieza?",
+   "Limón, naranja y manzana canela."
+  ],
+  [
+   "¿Qué aromas tiene el desinfectante?",
+   "Violeta, Lavanda, Pino, Floral, Limón, Frutos Rojos, Bebé, Manzana y Bouquet."
+  ]
+ ]
+}
