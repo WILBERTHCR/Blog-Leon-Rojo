@@ -91,9 +91,10 @@ def page(p, f, posts):
     faq = list((f or {}).get('faq', []))
     if not any('Dónde' in q for q, a in faq):
         faq.append(['¿Dónde lo compro?', 'En ferreterías de todo el país que venden la marca León Rojo, o pedilo directo por WhatsApp al 8994-4763.'])
-    ld = [{"@context": "https://schema.org", "@type": "Product", "name": p['n'] + ' León Rojo', "description": p['d'],
-           "image": [f"https://quimicasarji.com/productos/img/{i}.jpg" for i in imgs], "brand": {"@type": "Brand", "name": "León Rojo"},
-           "manufacturer": {"@type": "Organization", "name": "Químicas Arji WGAC S.A."}, "category": cat, "url": url},
+    # Sin "Product": Google exige precio (offers) o reseñas para ese tipo, y no publicamos precios ni inventamos reseñas.
+    ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": p['n'] + ' León Rojo', "description": p['d'], "url": url,
+           "inLanguage": "es-CR", "primaryImageOfPage": f"https://quimicasarji.com/productos/img/{imgs[0]}.jpg",
+           "publisher": {"@type": "Organization", "name": "Químicas Arji WGAC S.A.", "url": "https://quimicasarji.com/"}},
           {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
               {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://quimicasarji.com/"},
               {"@type": "ListItem", "position": 2, "name": "Productos", "item": "https://quimicasarji.com/productos/"},
