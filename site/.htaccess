@@ -12,6 +12,9 @@ RewriteRule ^sobre-nosotros/?$ /#historia [R=301,NE,L]
 RewriteRule ^contactanos/?$ /#contacto [R=301,NE,L]
 RewriteRule ^m/.*$ / [R=301,L]
 
+# Redes sociales: quimicasarji.com/tiktok, /instagram, /facebook -> página principal (medido en Analytics)
+RewriteRule ^(tiktok|instagram|facebook)/?$ /?utm_source=$1&utm_medium=social&utm_campaign=perfil [R=302,L]
+
 # QR de las etiquetas: quimicasarji.com/q/<producto> -> página del producto (medido en Analytics)
 RewriteRule ^q/([a-z0-9-]+)/?$ /productos/$1/?utm_source=etiqueta&utm_medium=qr&utm_campaign=$1 [R=302,L]
 
