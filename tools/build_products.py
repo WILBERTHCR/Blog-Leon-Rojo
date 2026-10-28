@@ -109,7 +109,7 @@ def page(p, f, posts):
     msg = f"Hola Químicas Arji, quiero pedir {p['n']} León Rojo."
     body = f'''<main class="wrap prod"><nav class="crumbs" aria-label="Ruta"><a href="/">Inicio</a> › <a href="/productos/">Productos</a> › {e(cat)}</nav>
 <section class="phero"><div class="gal"><div class="main"><img src="/productos/img/{imgs[0]}.jpg" alt="{e(p['n'])} León Rojo"></div><div class="thumbs">{thumbs}</div></div>
-<div class="pinfo"><span class="eyebrow">León Rojo · {e(cat)}</span><h1>{e(p['n'])}</h1><p class="sub">{e(p['s'])}</p>
+<div class="pinfo"><span class="eyebrow">León Rojo · {e(cat)}</span><h1>{e(p['n'])} León Rojo</h1><p class="sub">{e(p['s'])}</p>
 <p class="lbl">Presentaciones</p><div class="tags">{pres}</div>{f'<p class="lbl">Aromas / variantes</p><div class="tags">{vars_}</div>' if vars_ else ''}
 <div class="ctas"><a class="btn btn-wa" href="{wa(msg)}" target="_blank" rel="noopener">Pedir por WhatsApp</a>{'' if p['c'] == 'envases' else f'<a class="btn btn-red" href="{wa('Hola Químicas Arji, necesito la ficha técnica de ' + p['n'] + '.')}" target="_blank" rel="noopener">Ficha técnica</a>'}</div>
 <p class="note">🏪 También lo encontrás en ferreterías de todo el país: pedí la marca León Rojo en tu ferretería de confianza.</p></div></section>
