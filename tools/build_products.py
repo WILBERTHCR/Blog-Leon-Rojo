@@ -152,17 +152,17 @@ def hub(h, posts):
           {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
               {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://quimicasarji.com/"},
               {"@type": "ListItem", "position": 2, "name": "Productos", "item": "https://quimicasarji.com/productos/"},
-              {"@type": "ListItem", "position": 3, "name": h['h1'], "item": url}]},
+              {"@type": "ListItem", "position": 3, "name": h.get('label', h['h1']), "item": url}]},
           {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
               {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in h['faq']]}]
     ldh = ''.join('<script type="application/ld+json">' + json.dumps(x, ensure_ascii=False) + '</script>' for x in ld)
     prods = [BYID[i] for i in h['ids']]
     cards = ''.join(f'<a href="/productos/{slug(r["n"])}/"><img src="/productos/img/{r["img"][0]}.jpg" alt="{e(r["n"])} León Rojo" loading="lazy"><span>{e(r["n"])}</span></a>' for r in prods)
-    guide = ''.join(f'<a class="guide" href="/blog/{g["slug"]}/"><small>Guía paso a paso</small><b>{e(g["title"])}</b></a>' for g in posts if g['slug'] == h.get('blog'))
-    body = f'''<main class="wrap prod"><nav class="crumbs" aria-label="Ruta"><a href="/">Inicio</a> › <a href="/productos/">Productos</a> › {e(h['h1'])}</nav>
+    guide = ''.join(f'<a class="guide" href="/blog/{g["slug"]}/"><small>Guía paso a paso</small><b>{e(g["title"])}</b></a>' for g in posts if g['slug'] in [h.get('blog')] + h.get('blogs', []))
+    body = f'''<main class="wrap prod"><nav class="crumbs" aria-label="Ruta"><a href="/">Inicio</a> › <a href="/productos/">Productos</a> › {e(h.get('label', h['h1']))}</nav>
 <section class="phero"><div class="gal"><div class="main"><img src="/productos/img/{h['img']}.jpg" alt="{e(h['h1'])} León Rojo"></div></div>
 <div class="pinfo"><span class="eyebrow">León Rojo · Fabricado en Costa Rica</span><h1>{e(h['h1'])}</h1><p class="sub">{e(h['sub'])}</p>
-<div class="ctas"><a class="btn btn-wa" href="{wa('Hola Químicas Arji, quiero información de ' + h['h1'].lower() + ' León Rojo.')}" target="_blank" rel="noopener">Consultar por WhatsApp</a></div>
+<div class="ctas"><a class="btn btn-wa" href="{wa('Hola Químicas Arji, quiero información de ' + h.get('label', h['h1']).lower() + ' León Rojo.')}" target="_blank" rel="noopener">Consultar por WhatsApp</a></div>
 <p class="note">🏪 Pedilo en tu ferretería de confianza: buscá la marca León Rojo.</p>
 <p class="lbl" style="margin-top:18px">Elegí tu producto</p><div class="rel" style="grid-template-columns:repeat(2,minmax(0,1fr))">{cards}</div></div></section>
 <article style="padding-top:10px">{h.get('body') or auto_body(h, prods)}{guide}
@@ -180,7 +180,7 @@ def index(built):
         if not items: continue
         cards += f'<h2>{e(name)}</h2><div class="rel">' + ''.join(f'<a href="/productos/{slug(p["n"])}/"><img src="/productos/img/{p["img"][0]}.jpg" alt="" loading="lazy"><span>{e(p["n"])}</span></a>' for p in items) + '</div>'
     h = head('Productos León Rojo · Catálogo completo | Químicas Arji', 'Catálogo de productos químicos León Rojo hechos en Costa Rica: limpieza, taller y autos, construcción, madera y piscinas.', 'https://quimicasarji.com/productos/', 'b1_14', '')
-    open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(h + f'<main class="wrap prod"><nav class="crumbs"><a href="/">Inicio</a> › Productos</nav><section style="padding-top:16px"><span class="eyebrow">Catálogo León Rojo</span><h1>Nuestros productos</h1><img src="/productos/img/linea_completa_1.jpg" alt="Línea completa de productos León Rojo" style="width:100%;border-radius:12px;margin:8px 0 18px;background:#F2F2F0"><p class="lead">Fabricados en Costa Rica desde hace 29 años. Tocá un producto para ver presentaciones, usos y precauciones.</p></section><h2>Guías por tema</h2><div class="uses">{''.join(f'<a class="use" style="text-decoration:none" href="/productos/{h["slug"]}/">{e(h["h1"])}</a>' for h in HUBS)}</div>{cards}<p style="padding-bottom:40px"></p></main>' + FOOT)
+    open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(h + f'<main class="wrap prod"><nav class="crumbs"><a href="/">Inicio</a> › Productos</nav><section style="padding-top:16px"><span class="eyebrow">Catálogo León Rojo</span><h1>Nuestros productos</h1><img src="/productos/img/linea_completa_1.jpg" alt="Línea completa de productos León Rojo" style="width:100%;border-radius:12px;margin:8px 0 18px;background:#F2F2F0"><p class="lead">Fabricados en Costa Rica desde hace 29 años. Tocá un producto para ver presentaciones, usos y precauciones.</p></section><h2>Guías por tema</h2><div class="uses">{''.join(f'<a class="use" style="text-decoration:none" href="/productos/{h["slug"]}/">{e(h.get("label", h["h1"]))}</a>' for h in HUBS)}</div>{cards}<p style="padding-bottom:40px"></p></main>' + FOOT)
 
 
 if __name__ == '__main__':
