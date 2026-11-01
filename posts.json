@@ -1,7 +1,7 @@
 [
  {
   "slug": "como-destapar-una-caneria",
-  "title": "Cómo destapar una cañería tapada paso a paso",
+  "title": "Cómo destapar una cañería paso a paso (sin dañar la tubería)",
   "desc": "Cómo destapar una cañería, inodoro o desagüe paso a paso con desatorador, sin dañar la tubería: qué producto usar, errores comunes y precauciones de seguridad.",
   "img": "b3_11",
   "date": "2026-10-19",
@@ -10,7 +10,8 @@
    "Super Desatorador León Rojo",
    "De cañerías, alto poder. En 1/2 litro, litro y galón."
   ],
-  "kw": "destapar cañería, desatorador, inodoro tapado, Costa Rica"
+  "kw": "cómo destapar una cañería, destapar pila de cocina, desatorador de cañerías, cañería tapada qué hacer, destapar desagüe",
+  "updated": "2026-11-01"
  },
  {
   "slug": "acido-muriatico-para-que-sirve",
@@ -312,5 +313,44 @@
    "Usalo siempre con guantes, lentes y buena ventilación. En 1/2 litro, litro y galón."
   ],
   "kw": "ácido muriático en la piel, ácido muriático en los ojos, quemadura con ácido muriático, respiré ácido muriático, centro de intoxicaciones Costa Rica"
+ },
+ {
+  "slug": "soda-caustica-en-costa-rica",
+  "title": "Soda cáustica en Costa Rica: qué es, para qué sirve y dónde comprarla",
+  "desc": "Qué es la soda cáustica (hidróxido de sodio), para qué sirve en cañerías y trampas de grasa, cómo usarla con seguridad y dónde comprarla en Costa Rica.",
+  "img": "b3_15",
+  "date": "2026-11-01",
+  "cta": [
+   "b3_15",
+   "Desatorador de Cañerías NC León Rojo",
+   "Soda cáustica líquida al 50% para desagües de cocina y trampas de grasa. En 1/2 litro, litro y galón."
+  ],
+  "kw": "soda cáustica Costa Rica, dónde comprar soda cáustica, soda cáustica líquida, para qué sirve la soda cáustica, hidróxido de sodio"
+ },
+ {
+  "slug": "como-destapar-un-inodoro",
+  "title": "Cómo destapar un inodoro (servicio) tapado paso a paso",
+  "desc": "Cómo destapar un inodoro o servicio tapado: primero con la bomba de hule y, si no funciona, con un desatorador para inodoros, sin mezclar productos y con seguridad.",
+  "img": "b3_11",
+  "date": "2026-11-01",
+  "cta": [
+   "b3_11",
+   "Super Desatorador León Rojo",
+   "Para tapones difíciles en cañerías, inodoros y desagües. En 1/2 litro, litro y galón."
+  ],
+  "kw": "cómo destapar un inodoro, destapar servicio tapado, inodoro tapado qué hacer, desatorador para inodoro, destapar inodoro con papel"
+ },
+ {
+  "slug": "como-limpiar-la-trampa-de-grasa",
+  "title": "Cómo limpiar la trampa de grasa de la cocina o la soda",
+  "desc": "Cómo limpiar la trampa de grasa paso a paso: sacar la grasa, raspar y usar soda cáustica para la grasa pegada. Cada cuánto limpiarla y errores comunes.",
+  "img": "b3_15",
+  "date": "2026-11-01",
+  "cta": [
+   "b3_15",
+   "Desatorador de Cañerías NC León Rojo",
+   "Muy usado en desagües de cocina y trampas de grasa. En 1/2 litro, litro y galón."
+  ],
+  "kw": "cómo limpiar la trampa de grasa, trampa de grasa restaurante, trampa de grasa mal olor, producto para trampa de grasa, limpiar trampa de grasa con soda cáustica"
  }
 ]

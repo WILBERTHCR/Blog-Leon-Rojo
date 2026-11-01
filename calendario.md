@@ -35,3 +35,23 @@ Producto = el que se recomienda (datos en `productos.md`). Mantener el orden.
 | 28 | Envases para emprender con productos de limpieza | envases-para-emprender | Galones, Botellas y Atomizadores Vacíos |
 
 Cuando se terminen, elegir temas nuevos con la regla de CLAUDE.md (búsquedas reales en Costa Rica, sin repetir).
+
+## Plan por grupos de producto (SEO)
+
+Para cada grupo: ampliar la guía por tema (`temas/<slug>.json`, campo `body` de 1.700+ palabras, `label`, `faq` de 10+ preguntas, `blogs`), reescribir el artículo débil del grupo y agregar 2–4 artículos de apoyo que enlacen a la guía. Prioridad según Search Console:
+
+| # | Grupo (guía por tema) | Estado |
+|---|---|---|
+| 1 | acido-muriatico | Hecho (31/10/2026) |
+| 2 | desatorador-de-canerias (+ soda cáustica) | Hecho (01/11/2026) |
+| 3 | productos-de-limpieza (creolina, cloro, desinfectante) | Pendiente |
+| 4 | quimicos-para-piscinas (piscina verde está en el puesto 70) | Pendiente |
+| 5 | desengrasante | Pendiente |
+| 6 | productos-para-autos | Pendiente |
+| 7 | thinner-y-solventes | Pendiente |
+| 8 | preservantes-para-madera (comején) | Pendiente |
+| 9 | aditivos-para-construccion | Pendiente |
+| 10 | jabones-y-lavanderia | Pendiente |
+| 11 | mantenimiento-de-taller | Pendiente |
+| 12 | pegamentos-y-tintes-para-madera | Pendiente |
+| 13 | envases-vacios | Pendiente |
