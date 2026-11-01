@@ -1,8 +1,13 @@
 # Químicas Arji — redirecciones de la web vieja (GoDaddy) a la nueva
 RewriteEngine On
 
-# Usar siempre quimicasarji.com sin www
+# Usar siempre https://quimicasarji.com (sin www y con https)
 RewriteCond %{HTTP_HOST} ^www\.quimicasarji\.com$ [NC]
+RewriteRule ^(.*)$ https://quimicasarji.com/$1 [R=301,L]
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteCond %{REQUEST_URI} !^/[A-Fa-f0-9]{32}\.txt$
 RewriteRule ^(.*)$ https://quimicasarji.com/$1 [R=301,L]
 
 # Páginas viejas -> secciones de la web nueva (evita errores 404 en Google)
@@ -11,6 +16,7 @@ RewriteRule ^fichas-tecnicas/?$ /productos/ [R=301,L]
 RewriteRule ^sobre-nosotros/?$ /#historia [R=301,NE,L]
 RewriteRule ^contactanos/?$ /#contacto [R=301,NE,L]
 RewriteRule ^m/.*$ / [R=301,L]
+RewriteRule ^f/.*$ /blog/ [R=301,L]
 
 # Redes sociales: quimicasarji.com/tiktok, /instagram, /facebook -> página principal (medido en Analytics)
 RewriteRule ^(tiktok|instagram|facebook)/?$ /?utm_source=$1&utm_medium=social&utm_campaign=perfil [R=302,L]

@@ -22,4 +22,5 @@ if [ -f site/.htaccess ]; then
   # conserva el bloque que agrega cPanel (PHP) si existe
   { cat site/.htaccess; [ -f "$H" ] && sed -n '/BEGIN cPanel-generated/,/END cPanel-generated/p' "$H"; } > "$H.new" && mv -f "$H.new" "$H"
 fi
+[ -f site/robots.txt ] && cp -f site/robots.txt "$HOME/public_html/robots.txt"
 [ -f site/data.js ] && cp -f site/data.js "$HOME/public_html/data.js"
