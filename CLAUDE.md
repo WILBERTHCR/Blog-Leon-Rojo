@@ -16,7 +16,7 @@ El servidor (cPanel) hace `git pull` cada hora y copia `blog/`, `redes/`, `produ
 
 ## Cómo publicar un artículo nuevo
 1. Elegir un tema que la gente busque en Google en Costa Rica y que se resuelva con un producto de `productos.md`. No repetir temas ya publicados en `posts.json`.
-2. Escribir `posts/<slug>.html` (600–900 palabras) y agregar su entrada en `posts.json` con la fecha de hoy.
+2. Escribir `posts/<slug>.html` (600–900 palabras) y agregar su entrada en `posts.json` con la fecha de hoy. El campo `desc` debe tener entre 140 y 160 caracteres (Bing marca las descripciones cortas).
 3. `python3 tools/build.py`
 4. `git add -A && git commit -m "Artículo: <título>" && git push`
 

@@ -86,7 +86,10 @@ def page(p, f, posts):
     s = slug(p['n']); url = f'https://quimicasarji.com/productos/{s}/'
     cat = CATS.get(p['c'], '')
     imgs = p['img']
-    desc = (f['intro'] if f else p['d'])[:155].rsplit(' ', 1)[0] + '…' if len((f['intro'] if f else p['d'])) > 155 else (f['intro'] if f else p['d'])
+    desc = f['intro'] if f else p['d']
+    if len(desc) < 140 and p.get('pres'): desc += ' Presentaciones: ' + ', '.join(p['pres']) + '.'
+    if len(desc) < 140: desc += ' Hecho en Costa Rica por Químicas Arji.'
+    if len(desc) > 160: desc = desc[:157].rsplit(' ', 1)[0].rstrip(',.:') + '…'
     title = f"{p['n']} León Rojo | {p['s']} · Costa Rica"
     faq = list((f or {}).get('faq', []))
     if not any('Dónde' in q for q, a in faq):
@@ -169,7 +172,7 @@ def hub(h, posts):
 <h2>Preguntas frecuentes</h2>{''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in h['faq'])}
 </article></main>'''
     os.makedirs(os.path.join(OUT, h['slug']), exist_ok=True)
-    open(os.path.join(OUT, h['slug'], 'index.html'), 'w', encoding='utf-8').write(head(h['title'], h['desc'], url, h['img'], ldh) + body + FOOT)
+    open(os.path.join(OUT, h['slug'], 'index.html'), 'w', encoding='utf-8').write(head(h['title'], h['desc'] if len(h['desc']) >= 140 else h['desc'] + ' Fabricados en Costa Rica por Químicas Arji.', url, h['img'], ldh) + body + FOOT)
     return h['slug']
 
 
@@ -179,7 +182,7 @@ def index(built):
         items = [p for p in P if p['c'] == c and p['id'] in built]
         if not items: continue
         cards += f'<h2>{e(name)}</h2><div class="rel">' + ''.join(f'<a href="/productos/{slug(p["n"])}/"><img src="/productos/img/{p["img"][0]}.jpg" alt="" loading="lazy"><span>{e(p["n"])}</span></a>' for p in items) + '</div>'
-    h = head('Productos León Rojo · Catálogo completo | Químicas Arji', 'Catálogo de productos químicos León Rojo hechos en Costa Rica: limpieza, taller y autos, construcción, madera y piscinas.', 'https://quimicasarji.com/productos/', 'b1_14', '')
+    h = head('Productos León Rojo · Catálogo completo | Químicas Arji', 'Catálogo de productos químicos León Rojo hechos en Costa Rica: limpieza, taller y autos, construcción, madera y piscinas. Presentaciones, usos y seguridad.', 'https://quimicasarji.com/productos/', 'b1_14', '')
     open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(h + f'<main class="wrap prod"><nav class="crumbs"><a href="/">Inicio</a> › Productos</nav><section style="padding-top:16px"><span class="eyebrow">Catálogo León Rojo</span><h1>Nuestros productos</h1><img src="/productos/img/linea_completa_1.jpg" alt="Línea completa de productos León Rojo" style="width:100%;border-radius:12px;margin:8px 0 18px;background:#F2F2F0"><p class="lead">Fabricados en Costa Rica desde hace 29 años. Tocá un producto para ver presentaciones, usos y precauciones.</p></section><h2>Guías por tema</h2><div class="uses">{''.join(f'<a class="use" style="text-decoration:none" href="/productos/{h["slug"]}/">{e(h.get("label", h["h1"]))}</a>' for h in HUBS)}</div>{cards}<p style="padding-bottom:40px"></p></main>' + FOOT)
 
 
