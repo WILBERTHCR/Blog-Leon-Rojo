@@ -236,10 +236,10 @@ F = {
   seguridad='Usá guantes y trabajá en un lugar ventilado. Mantenelo lejos de llamas y fuera del alcance de niños. Leé la etiqueta.',
   faq=[['¿Qué color da?', 'Color clásico antiguo.'], ['¿En qué presentaciones viene?', 'En 1/8, 1/4 de galón y galón.']]),
  'pentacellagua': dict(
-  intro='El Pentacell León Rojo es un preservante para maderas soluble en agua. Protege contra polilla, comején y hongos en casas de madera, vigas y cercas.',
-  pasos=['Usá guantes, lentes y ropa de trabajo.', 'Prepará el producto según la etiqueta.', 'Aplicalo con brocha o por inmersión sobre madera limpia.', 'Dejá secar antes de pintar o instalar.'],
+  intro='El Pentacell León Rojo es un preservante para maderas soluble en agua, de uso preventivo: se aplica a la madera nueva, antes de instalarla, para protegerla desde el inicio contra polilla, comején y hongos. Ideal para casas de madera, vigas y cercas.',
+  pasos=['Usá guantes, lentes y ropa de trabajo.', 'Prepará el producto según la etiqueta.', 'Aplicalo con brocha o por inmersión sobre madera nueva, limpia y seca, antes de instalarla.', 'Dejá secar antes de pintar o instalar.'],
   seguridad=PRES_MAD,
-  faq=[['¿Contra qué protege?', 'Contra polilla, comején y hongos.'], ['¿Cuál es la diferencia con el Pentacell Concentrado?', 'Este es soluble en agua; el Concentrado es soluble en solvente y de uso industrial.']]),
+  faq=[['¿Contra qué protege?', 'Contra polilla, comején y hongos. Es preventivo: se aplica a madera nueva, antes de que aparezcan los insectos.'], ['¿Elimina el comején si la madera ya está atacada?', 'No. El Pentacell es un preservante preventivo, no un insecticida para plagas activas. Si la madera ya tiene comején, consultá con un profesional en control de plagas.'], ['¿Cuál es la diferencia con el Pentacell Concentrado?', 'Este es soluble en agua; el Concentrado es soluble en solvente y de uso industrial.']]),
  'pentacellsolvente': dict(
   intro='El Pentacell Concentrado León Rojo es un preservante para maderas soluble en solvente, de uso industrial, para aserraderos y construcción en madera.',
   pasos=['Usá equipo de protección completo.', 'Prepará el producto según la etiqueta.', 'Aplicalo sobre madera limpia con brocha o por inmersión.', 'Dejá secar en un lugar ventilado.'],
