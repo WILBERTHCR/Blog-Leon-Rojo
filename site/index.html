@@ -262,9 +262,10 @@ footer{border-top:1px solid var(--line);padding-block:56px calc(110px + env(safe
 .score{font-family:var(--f-label);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.88rem;color:var(--muted)}
 .score b{color:var(--hazard);font-variant-numeric:tabular-nums}
 @media (max-width:860px){.lab-grid{grid-template-columns:1fr}.pcard{flex-direction:row}.pcard .ph{width:110px;flex:none;aspect-ratio:auto;max-height:none}.pcard .b{padding:12px}.pcard h3{font-size:1.2rem}.pcard p.long{display:none}}
-/* demo en ficha */
+/* demo en ficha (abajo de la información) */
 .gal .main{position:relative}
-.gal .stage{position:absolute;inset:0;aspect-ratio:auto;border:0;border-radius:0}
+.mdemo{border-top:1px solid var(--line);padding-top:12px}
+.mdemo .stage{width:100%;max-width:420px}
 .trybtn{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:3;box-shadow:0 10px 30px rgba(227,20,27,.45);animation:pulse 2s ease-in-out infinite;white-space:nowrap}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(227,20,27,.55)}50%{box-shadow:0 0 0 12px rgba(227,20,27,0)}}
 .thumbs .t-try{width:auto;padding:0 10px;font-family:var(--f-label);font-weight:700;color:#fff;background:var(--red);text-transform:uppercase;font-size:.78rem;letter-spacing:.04em}
@@ -645,7 +646,7 @@ blockquote{margin:6px 0 18px;padding:14px 18px;border-left:4px solid var(--red);
 <div class="scrim" id="scrim" hidden>
   <div class="modal-wrap">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
-      <div class="gal"><div class="main"><img id="mimg" alt=""><div class="stage" id="mStage" hidden></div><button class="btn btn-red trybtn" id="mTry" type="button"><svg class="i"><use href="#hand"/></svg>Probalo con el dedo</button></div><div class="thumbs" id="mthumbs"></div></div>
+      <div class="gal"><div class="main"><img id="mimg" alt=""></div><div class="thumbs" id="mthumbs"></div></div>
       <div class="info">
         <div id="mcat" style="font-family:var(--f-label);font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--red);font-weight:700"></div>
         <h3 id="mt"></h3>
@@ -660,6 +661,7 @@ blockquote{margin:6px 0 18px;padding:14px 18px;border-left:4px solid var(--red);
           <div class="qty"><button type="button" id="qminus" aria-label="Menos">−</button><input id="mqty" type="number" min="1" value="1" aria-label="Cantidad"><button type="button" id="qplus" aria-label="Más">+</button></div>
           <button class="btn btn-red" id="madd" type="button">Agregar al pedido</button>
         </div>
+        <div class="mdemo" id="mdemoBox" hidden><div class="lbl">👆 Probalo antes de comprar</div><p class="note" style="margin:4px 0 8px">Pasá el dedo sobre la imagen y mirá cómo limpia.</p><div class="stage" id="mStage"></div></div>
         <div class="xsell"><div class="lbl">Combinalo con</div><div class="xs" id="mxs"></div></div>
       </div>
     </div>
@@ -764,27 +766,26 @@ const mdemo=Demo($('#mStage'),{done(el){
   el.querySelector('h3').textContent='¡Funciona!';el.querySelector('p').textContent=`${cur.n} ${mdemo.scene.res}`;
   el.querySelector('.row').innerHTML=`<button class="btn btn-red" type="button" data-a="add">Agregar ${selP}</button><button class="btn btn-ghost" type="button" data-a="again">Otra vez</button>`}});
 $('#mStage').addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;if(b.dataset.a==='add')$('#madd').click();else mdemo.reset()});
-function showPhoto(f){$('#mStage').hidden=true;$('#mimg').hidden=false;$('#mimg').src=IMG(f);$('#mTry').hidden=!cur.demo;
+function showPhoto(f){$('#mimg').src=IMG(f);
   [...$('#mthumbs').children].forEach(b=>b.setAttribute('aria-pressed',b.dataset.f===f))}
-function showDemo(){$('#mimg').hidden=true;$('#mTry').hidden=true;$('#mStage').hidden=false;[...$('#mthumbs').children].forEach(b=>b.setAttribute('aria-pressed',b.dataset.f==='try'));requestAnimationFrame(()=>mdemo.load(cur,selV))}
+function showDemo(){$('#mdemoBox').hidden=!cur.demo;if(cur.demo)requestAnimationFrame(()=>mdemo.load(cur,selV))}
 function slugP(n){return n.normalize('NFKD').replace(/[^\x00-\x7f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')}
 function openP(id){cur=byId(id);selP=cur.pres[0];selV=cur.vars?cur.vars[0]:null;$('#mimg').alt=cur.n;
-  $('#mthumbs').innerHTML=(cur.demo?'<button type="button" class="t-try" data-f="try">👆 Probar</button>':'')+(cur.img.length>1||cur.demo?cur.img.map(f=>`<button type="button" data-f="${f}" aria-label="Ver foto"><img src="${IMG(f)}" alt="" loading="lazy"></button>`).join(''):'');
+  $('#mthumbs').innerHTML=(cur.img.length>1?cur.img.map(f=>`<button type="button" data-f="${f}" aria-label="Ver foto"><img src="${IMG(f)}" alt="" loading="lazy"></button>`).join(''):'');
   $('#mthumbs').hidden=!$('#mthumbs').children.length;showPhoto(cur.img[0]);
   $('#mcat').textContent=CATS[cur.c];$('#mt').textContent=cur.n;$('#md').textContent=cur.d;$('#muse').innerHTML=cur.u.map(x=>`<li>${x}</li>`).join('');
   $('#mfull').hidden=!!cur.pro;$('#mfull').href='/productos/'+slugP(cur.n)+'/';$('#mwarn').hidden=!cur.haz||cur.pro;$('#mpro').hidden=!cur.pro;$('#mvar').hidden=!cur.vars;$('#mvarl').textContent=VARL[cur.id]||'Opción';
   const rel=P.filter(p=>p.c===cur.c&&p.id!==cur.id).sort((a,b)=>(!!b.demo+!!b.star*2)-(!!a.demo+!!a.star*2)).slice(0,3);
   $('#mxs').innerHTML=rel.map(p=>`<button type="button" data-id="${p.id}"><img src="${IMG(p.img[0])}" alt=""><span>${p.n}</span></button>`).join('');
-  opts();$('#mqty').value=1;$('#scrim').hidden=false;document.body.style.overflow='hidden';$('.modal').scrollTop=0;$('#mclose').focus()}
+  opts();$('#mqty').value=1;$('#scrim').hidden=false;showDemo();document.body.style.overflow='hidden';$('.modal').scrollTop=0;$('#mclose').focus()}
 function opts(){$('#mpres').innerHTML=cur.pres.map(x=>`<button type="button" class="opt" data-p="${x}" aria-pressed="${x===selP}">${x}</button>`).join('');
   if(cur.vars)$('#mvars').innerHTML=cur.vars.map(x=>`<button type="button" class="opt" data-v="${x}" aria-pressed="${x===selV}">${x}</button>`).join('')}
 function closeM(){$('#scrim').hidden=true;document.body.style.overflow=''}
-$('#mTry').onclick=showDemo;
-$('#mthumbs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;b.dataset.f==='try'?showDemo():showPhoto(b.dataset.f)});
+$('#mthumbs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;showPhoto(b.dataset.f)});
 $('#mxs').addEventListener('click',e=>{const b=e.target.closest('[data-id]');if(b)openP(b.dataset.id)});
 $('#mpres').addEventListener('click',e=>{const b=e.target.closest('.opt');if(b){selP=b.dataset.p;opts()}});
 $('#mvars').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;selV=b.dataset.v;opts();
-  if(!$('#mStage').hidden&&cur.demo&&cur.demo.vc)mdemo.load(cur,selV);else if(cur.vimg&&cur.vimg[selV])showPhoto(cur.vimg[selV])});
+  if(cur.vimg&&cur.vimg[selV])showPhoto(cur.vimg[selV]);if(cur.demo&&cur.demo.vc)mdemo.load(cur,selV)});
 $('#qminus').onclick=()=>{$('#mqty').value=Math.max(1,(+$('#mqty').value||1)-1)};
 $('#qplus').onclick=()=>{$('#mqty').value=(+$('#mqty').value||0)+1};
 $('#mclose').onclick=closeM;$('#scrim').addEventListener('click',e=>{if(e.target.id==='scrim')closeM()});
