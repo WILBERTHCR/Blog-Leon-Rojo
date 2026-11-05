@@ -19,7 +19,7 @@ Imagen = archivo en https://quimicasarji.com/img/p/<imagen>.jpg (ya existe en el
 | Grasa Multiusos | Lubricación de piezas y mecanismos | `b1_05` | 1/32 galón, 1/16 galón, 1/8 galón, 1/4 galón |
 | Desoxidante de Metales | Quita el óxido de herramientas y piezas | `b6_13` | 1/2 litro, Litro, Galón |
 | Aromatizante para Carro | 10 aromas en atomizador | `b8_13` | Atomizador |
-| Vinagre de Limpieza 3.5% | Limpia, desengrasa y elimina malos olores | `b8_36` | Litro atomizador, Galón |
+| Vinagre de Limpieza 3.5% | Limpia, desengrasa y elimina malos olores | `b8_36` | Atomizador 920 ml, Galón |
 | Desinfectante | Uso industrial y doméstico, 9 aromas | `b6_09` | Galón |
 | Creolina | Desinfectante de ágil acción | `b8_05` | 240 ml, 1/2 litro, Litro, Galón |
 | Cloro | Doméstico 3% y 4%, industrial 12% | `b4_11` | Galón |
@@ -66,3 +66,5 @@ Imagen = archivo en https://quimicasarji.com/img/p/<imagen>.jpg (ya existe en el
 | Bicromato de Potasio | Uso técnico | `b8_20` | 150 g, 250 g |
 | Galones y Botellas Vacíos | Con tapa roja | `b8_18` | Botella litro, Galón |
 | Atomizadores Vacíos | Botella con gatillo | `b8_19` | Litro |
+
+> **Nota (nov 2026):** el atomizador del Vinagre de Limpieza es de 920 ml **de forma temporal**; pronto pasa a envase de litro (1000 ml). Cuando cambie, buscar "920 ml" en el repo (productos.md, catalogo.json, site/data.js, fichas/vinagre.json, temas/vinagre-de-limpieza.json y posts/) y reemplazar por "litro".
