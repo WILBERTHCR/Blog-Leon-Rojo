@@ -53,7 +53,7 @@ CSS = '''
 .use{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-family:var(--f-label);font-weight:700;font-size:1.1rem;text-transform:uppercase;letter-spacing:.03em}
 .steps{counter-reset:s;list-style:none;padding:0;display:grid;gap:10px}
 .steps li{counter-increment:s;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start;margin:0}
-.steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-family:var(--f-label);font-weight:700}
+.steps li::before{content:counter(s);box-sizing:border-box;width:32px;height:32px;min-width:32px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;line-height:1;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}
 details{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:10px 0}
 summary{cursor:pointer;font-weight:600;font-size:1.05rem}
 details p{margin:10px 0 0;color:#E4DCD6}
