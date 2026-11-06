@@ -90,7 +90,8 @@ def page(p, f, posts):
     if len(desc) < 140 and p.get('pres'): desc += ' Presentaciones: ' + ', '.join(p['pres']) + '.'
     if len(desc) < 140: desc += ' Hecho en Costa Rica por Químicas Arji.'
     if len(desc) > 160: desc = desc[:157].rsplit(' ', 1)[0].rstrip(',.:') + '…'
-    title = f"{p['n']} León Rojo | {p['s']} · Costa Rica"
+    _c = [f"{p['n']} León Rojo | {p['s']} · Costa Rica", f"{p['n']} León Rojo | {p['s']}", f"{p['n']} León Rojo en Costa Rica | Usos y presentaciones", f"{p['n']} León Rojo | Usos y presentaciones"]
+    title = next((t for t in _c if len(t) <= 65), _c[-1])
     faq = list((f or {}).get('faq', []))
     if not any('Dónde' in q for q, a in faq):
         faq.append(['¿Dónde lo compro?', 'En ferreterías de todo el país que venden la marca León Rojo, o pedilo directo por WhatsApp al 8994-4763.'])
@@ -106,7 +107,7 @@ def page(p, f, posts):
         ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]})
     ldh = ''.join('<script type="application/ld+json">' + json.dumps(x, ensure_ascii=False) + '</script>' for x in ld)
-    thumbs = ''.join(f'<button type="button" data-src="/productos/img/{i}.jpg" aria-current="{str(k == 0).lower()}" aria-label="Foto {k + 1}"><img src="/productos/img/{i}.jpg" alt="" loading="lazy"></button>' for k, i in enumerate(imgs)) if len(imgs) > 1 else ''
+    thumbs = ''.join(f'<button type="button" data-src="/productos/img/{i}.jpg" aria-current="{str(k == 0).lower()}" aria-label="Foto {k + 1}"><img src="/productos/img/t/{i}.jpg" alt="" loading="lazy"></button>' for k, i in enumerate(imgs)) if len(imgs) > 1 else ''
     pres = ''.join(f'<span class="tag">{e(x)}</span>' for x in p.get('pres', []))
     vars_ = ''.join(f'<span class="tag">{e(x)}</span>' for x in p.get('vars', []))
     msg = f"Hola Químicas Arji, quiero pedir {p['n']} León Rojo."
@@ -124,7 +125,7 @@ def page(p, f, posts):
 {''.join(f'<a class="guide" href="/productos/{h["slug"]}/"><small>Guía completa · cuál elegir, usos y seguridad</small><b>{e(h["h1"])}</b></a>' for h in HUBS if p['id'] in h['ids'])}
 {''.join(f'<a class="guide" href="/blog/{g["slug"]}/"><small>Guía paso a paso</small><b>{e(g["title"])}</b></a>' for g in posts if f and f.get('blog') == g['slug'])}
 {('<h2>Preguntas frecuentes</h2>' + ''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in faq)) if faq else ''}
-<h2>También te puede servir</h2><div class="rel">{''.join(f'<a href="/productos/{slug(r["n"])}/"><img src="/productos/img/{r["img"][0]}.jpg" alt="" loading="lazy"><span>{e(r["n"])}</span></a>' for r in [x for x in P if x['c'] == p['c'] and x['id'] != p['id'] and not x.get('pro')][:4])}</div>
+<h2>También te puede servir</h2><div class="rel">{''.join(f'<a href="/productos/{slug(r["n"])}/"><img src="/productos/img/t/{r["img"][0]}.jpg" alt="" loading="lazy"><span>{e(r["n"])}</span></a>' for r in [x for x in P if x['c'] == p['c'] and x['id'] != p['id'] and not x.get('pro')][:4])}</div>
 </article></main>'''
     os.makedirs(os.path.join(OUT, s), exist_ok=True)
     open(os.path.join(OUT, s, 'index.html'), 'w', encoding='utf-8').write(head(title, desc, url, imgs[0], ldh) + body + FOOT)
@@ -160,7 +161,7 @@ def hub(h, posts):
               {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in h['faq']]}]
     ldh = ''.join('<script type="application/ld+json">' + json.dumps(x, ensure_ascii=False) + '</script>' for x in ld)
     prods = [BYID[i] for i in h['ids']]
-    cards = ''.join(f'<a href="/productos/{slug(r["n"])}/"><img src="/productos/img/{r["img"][0]}.jpg" alt="{e(r["n"])} León Rojo" loading="lazy"><span>{e(r["n"])}</span></a>' for r in prods)
+    cards = ''.join(f'<a href="/productos/{slug(r["n"])}/"><img src="/productos/img/t/{r["img"][0]}.jpg" alt="{e(r["n"])} León Rojo" loading="lazy"><span>{e(r["n"])}</span></a>' for r in prods)
     guide = ''.join(f'<a class="guide" href="/blog/{g["slug"]}/"><small>Guía paso a paso</small><b>{e(g["title"])}</b></a>' for g in posts if g['slug'] in [h.get('blog')] + h.get('blogs', []))
     body = f'''<main class="wrap prod"><nav class="crumbs" aria-label="Ruta"><a href="/">Inicio</a> › <a href="/productos/">Productos</a> › {e(h.get('label', h['h1']))}</nav>
 <section class="phero"><div class="gal"><div class="main"><img src="/productos/img/{h['img']}.jpg" alt="{e(h['h1'])} León Rojo"></div></div>
@@ -172,16 +173,35 @@ def hub(h, posts):
 <h2>Preguntas frecuentes</h2>{''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in h['faq'])}
 </article></main>'''
     os.makedirs(os.path.join(OUT, h['slug']), exist_ok=True)
-    open(os.path.join(OUT, h['slug'], 'index.html'), 'w', encoding='utf-8').write(head(h['title'], h['desc'] if len(h['desc']) >= 140 else h['desc'] + ' Fabricados en Costa Rica por Químicas Arji.', url, h['img'], ldh) + body + FOOT)
+    open(os.path.join(OUT, h['slug'], 'index.html'), 'w', encoding='utf-8').write(head(h['title'], (h['desc'] if len(h['desc']) >= 140 or len(h['desc']) + 44 > 160 else h['desc'] + ' Fabricados en Costa Rica por Químicas Arji.'), url, h['img'], ldh) + body + FOOT)
     return h['slug']
 
+
+
+def thumbs_dir():
+    """Miniaturas livianas (360 px) para tarjetas y galerías pequeñas."""
+    src = os.path.join(ROOT, 'productos_img'); dst = os.path.join(src, 't')
+    os.makedirs(dst, exist_ok=True)
+    try:
+        from PIL import Image
+    except ImportError:
+        import shutil
+        for f in os.listdir(src):
+            if f.endswith('.jpg') and not os.path.exists(os.path.join(dst, f)): shutil.copy(os.path.join(src, f), os.path.join(dst, f))
+        return
+    for f in os.listdir(src):
+        if not f.endswith('.jpg'): continue
+        o = os.path.join(dst, f)
+        if os.path.exists(o) and os.path.getmtime(o) >= os.path.getmtime(os.path.join(src, f)): continue
+        im = Image.open(os.path.join(src, f)).convert('RGB'); im.thumbnail((360, 360))
+        im.save(o, quality=78, optimize=True, progressive=True)
 
 def index(built):
     cards = ''
     for c, name in CATS.items():
         items = [p for p in P if p['c'] == c and p['id'] in built]
         if not items: continue
-        cards += f'<h2>{e(name)}</h2><div class="rel">' + ''.join(f'<a href="/productos/{slug(p["n"])}/"><img src="/productos/img/{p["img"][0]}.jpg" alt="" loading="lazy"><span>{e(p["n"])}</span></a>' for p in items) + '</div>'
+        cards += f'<h2>{e(name)}</h2><div class="rel">' + ''.join(f'<a href="/productos/{slug(p["n"])}/"><img src="/productos/img/t/{p["img"][0]}.jpg" alt="" loading="lazy"><span>{e(p["n"])}</span></a>' for p in items) + '</div>'
     h = head('Productos León Rojo · Catálogo completo | Químicas Arji', 'Catálogo de productos químicos León Rojo hechos en Costa Rica: limpieza, taller y autos, construcción, madera y piscinas. Presentaciones, usos y seguridad.', 'https://quimicasarji.com/productos/', 'b1_14', '')
     open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(h + f'<main class="wrap prod"><nav class="crumbs"><a href="/">Inicio</a> › Productos</nav><section style="padding-top:16px"><span class="eyebrow">Catálogo León Rojo</span><h1>Nuestros productos</h1><img src="/productos/img/linea_completa_1.jpg" alt="Línea completa de productos León Rojo" style="width:100%;border-radius:12px;margin:8px 0 18px;background:#F2F2F0"><p class="lead">Fabricados en Costa Rica desde hace 29 años. Tocá un producto para ver presentaciones, usos y precauciones.</p></section><h2>Guías por tema</h2><div class="uses">{''.join(f'<a class="use" style="text-decoration:none" href="/productos/{h["slug"]}/">{e(h.get("label", h["h1"]))}</a>' for h in HUBS)}</div>{cards}<p style="padding-bottom:40px"></p></main>' + FOOT)
 
@@ -191,6 +211,7 @@ if __name__ == '__main__':
     ids = sys.argv[1:] or [p['id'] for p in P if not p.get('pro') and os.path.exists(os.path.join(ROOT, 'fichas', p['id'] + '.json'))]
     if os.path.isdir(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT)
+    thumbs_dir()
     shutil.copytree(os.path.join(ROOT, 'productos_img'), os.path.join(OUT, 'img'))
     built = {}
     for pid in ids:
