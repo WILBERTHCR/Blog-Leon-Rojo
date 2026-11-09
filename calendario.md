@@ -44,8 +44,8 @@ Para cada grupo: ampliar la guía por tema (`temas/<slug>.json`, campo `body` de
 |---|---|---|
 | 1 | acido-muriatico | Hecho (31/10/2026) |
 | 2 | desatorador-de-canerias (+ soda cáustica) | Hecho (01/11/2026) |
-| 3 | productos-de-limpieza (creolina, cloro, desinfectante) | Pendiente |
-| 4 | quimicos-para-piscinas (piscina verde está en el puesto 70) | Pendiente |
+| 3 | productos-de-limpieza (creolina, cloro, desinfectante) | Hecho (08/11/2026) |
+| 4 | quimicos-para-piscinas (piscina verde está en el puesto 70) | Hecho (08/11/2026) |
 | 5 | desengrasante | Pendiente |
 | 6 | productos-para-autos | Pendiente |
 | 7 | thinner-y-solventes | Pendiente |
@@ -55,3 +55,5 @@ Para cada grupo: ampliar la guía por tema (`temas/<slug>.json`, campo `body` de
 | 11 | mantenimiento-de-taller | Pendiente |
 | 12 | pegamentos-y-tintes-para-madera | Pendiente |
 | 13 | envases-vacios | Pendiente |
+
+> Ácido muriático: NO cambiar títulos de las páginas del ácido hasta revisar Search Console (bajó tras cambios de título el 5–7/11; se devolvió el título original el 8/11).
