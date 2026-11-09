@@ -1,36 +1,77 @@
 {
  "slug": "quimicos-para-piscinas",
- "h1": "Químicos para piscinas",
- "title": "Cloro y químicos para piscinas en Costa Rica | León Rojo",
- "sub": "Cloro granulado, pastillas, alguicida y ajuste de pH",
- "desc": "Cloro granulado, cloro en pastilla, alguicida y soda ash León Rojo para piscinas: para qué sirve cada uno y cómo mantener el agua limpia.",
+ "h1": "Químicos para piscinas: cuál usar y cuándo",
+ "title": "Químicos para piscinas en Costa Rica: cloro, alguicida y pH",
+ "sub": "Cloro granulado, pastillas, alguicida, soda ash y sulfatos · Fabricados en Costa Rica por Químicas Arji",
+ "desc": "Guía de químicos para piscinas en Costa Rica: cloro granulado o en pastilla, alguicida, soda ash y sulfato. Para qué sirve cada uno y cómo tener el agua clara.",
  "ids": [
   "clorogranulado",
   "cloropastilla",
   "alguiacid",
-  "sodaash"
+  "sodaash",
+  "sulfatoaluminio",
+  "sulfatocobre"
  ],
  "blog": "como-mantener-la-piscina-limpia",
- "intro": "<p>Una piscina limpia depende de tres cosas: cloro suficiente para eliminar bacterias, control de algas y un pH en su punto. León Rojo fabrica en Costa Rica la línea completa para piscinas de casa, hoteles, condominios y jacuzzis.</p>",
- "tips": [
-  "Cloración rápida o de choque: Cloro Granulado.",
-  "Mantenimiento continuo en clorador, flotador o skimmer: Cloro en Pastilla.",
-  "Prevenir o eliminar algas (agua verde): Algui-Acid.",
-  "Subir el pH y la alcalinidad: Soda Ash."
- ],
+ "intro": "",
+ "tips": [],
  "seguridad": "Usá guantes y lentes. No mezclés químicos de piscina entre sí ni con ácidos; agregalos siempre al agua, nunca agua sobre el producto. Guardalos cerrados, en un lugar fresco y seco, fuera del alcance de niños. Las cantidades según el volumen de la piscina vienen en la etiqueta.",
  "faq": [
   [
-   "¿Qué diferencia hay entre el cloro granulado y la pastilla?",
-   "El granulado se disuelve rápido; la pastilla se disuelve poco a poco y sirve para el mantenimiento continuo."
+   "¿Qué químicos necesita una piscina?",
+   "Lo básico es cloro (granulado para choque y en pastilla para mantenimiento), un alguicida preventivo y un producto para ajustar el pH. Si el agua se pone turbia, un clarificador como el sulfato de aluminio."
   ],
   [
-   "¿El alguicida reemplaza al cloro?",
-   "No. El alguicida complementa al cloro: ayuda a prevenir y eliminar algas."
+   "¿Cuál es la diferencia entre el cloro granulado y el cloro en pastilla?",
+   "El granulado se disuelve rápido y sirve para cloración de choque; la pastilla se disuelve poco a poco y mantiene el cloro estable en clorador, flotador o skimmer."
   ],
   [
-   "¿Para qué sirve el Soda Ash?",
-   "Es carbonato de sodio para subir el pH y la alcalinidad del agua cuando están bajos."
+   "¿Por qué se pone verde la piscina?",
+   "Por algas, casi siempre porque el cloro se agotó o el filtro no trabajó lo suficiente. Se corrige con cepillado, cloración de choque y alguicida."
+  ],
+  [
+   "¿Por qué el agua está turbia si tiene cloro?",
+   "Suele ser por partículas finas que el filtro no atrapa o por pH alto. Revisá el filtro, ajustá el pH y usá un clarificador."
+  ],
+  [
+   "¿Para qué sirve el alguicida?",
+   "Para prevenir y ayudar a eliminar las algas que ponen el agua verde y las paredes resbalosas."
+  ],
+  [
+   "¿Para qué sirve la soda ash en la piscina?",
+   "Para subir el pH y la alcalinidad cuando están bajos."
+  ],
+  [
+   "¿Para qué sirve el sulfato de aluminio en la piscina?",
+   "Es un clarificador: junta las partículas finas que dejan el agua turbia para que el filtro las atrape o se vayan al fondo."
+  ],
+  [
+   "¿Cuánto cloro le echo a la piscina?",
+   "Depende del volumen de agua y del producto: seguí la cantidad que indica la etiqueta y medí con un kit antes y después."
+  ],
+  [
+   "¿Se pueden mezclar los químicos de la piscina?",
+   "No. Agregá cada uno por separado, dejá que circule y seguí con el siguiente según la etiqueta. Nunca mezclés cloro con ácidos."
+  ],
+  [
+   "¿Cuándo me puedo bañar después de echar cloro?",
+   "Cuando haya pasado el tiempo que indica la etiqueta y el cloro haya bajado a un nivel seguro según tu kit de medición."
+  ],
+  [
+   "¿Dónde compro químicos para piscina en Costa Rica?",
+   "En ferreterías de todo el país buscando la marca León Rojo, o por WhatsApp al 8994-4763."
+  ],
+  [
+   "¿Venden al por mayor para hoteles y condominios?",
+   "Sí. Escribinos por WhatsApp al 8994-4763."
   ]
+ ],
+ "body": "<p class=\"lead\">Una piscina limpia no depende de echar mucho cloro, sino de usar el producto correcto en el momento correcto. En esta guía te explicamos para qué sirve cada químico, cómo saber cuál necesita tu piscina según cómo se ve el agua, y los errores que más dinero y tiempo hacen perder.</p>\n<p>En Químicas Arji fabricamos en Costa Rica la línea León Rojo para piscinas de casa, hoteles, condominios y jacuzzis: <b>Cloro Granulado</b>, <b>Cloro en Pastilla</b>, <b>Algui-Acid</b>, <b>Soda Ash</b>, <b>Sulfato de Aluminio</b> y <b>Sulfato de Cobre</b>.</p>\n\n<h2>Contenido de esta guía</h2>\n<ul>\n<li><a href=\"#basico\">Lo básico: cloro, pH y filtro</a></li>\n<li><a href=\"#productos\">Para qué sirve cada producto</a></li>\n<li><a href=\"#segun-agua\">¿Qué necesita tu piscina? Según cómo se ve el agua</a></li>\n<li><a href=\"#rutina\">Rutina de mantenimiento semanal</a></li>\n<li><a href=\"#mezclas\">Lo que nunca se debe mezclar</a></li>\n<li><a href=\"#errores\">Errores comunes</a></li>\n<li><a href=\"#comprar\">Dónde comprar</a></li>\n</ul>\n\n<h2 id=\"basico\">Lo básico: cloro, pH y filtro</h2>\n<p>El agua de una piscina se mantiene clara cuando tres cosas funcionan juntas:</p>\n<ol>\n<li><b>El cloro</b> elimina las bacterias y la materia orgánica: sudor, bloqueador, hojas, polvo. Si el cloro se agota, el agua primero pierde brillo y después se pone verde.</li>\n<li><b>El pH</b> mide qué tan ácida o básica está el agua. Si se sale de rango, el cloro rinde menos, el agua irrita los ojos y puede ponerse turbia. Por eso hay que medirlo seguido con un kit o con tiras.</li>\n<li><b>El filtro y la bomba</b> atrapan las partículas. Ningún químico compensa un filtro sucio o pocas horas de filtrado.</li>\n</ol>\n<p>En Costa Rica, con sol fuerte, lluvias y mucho uso en verano, el cloro se gasta más rápido que en otros climas: medí más seguido en esas épocas.</p>\n\n<h2 id=\"productos\">Para qué sirve cada producto</h2>\n<h3>Cloro Granulado</h3>\n<p>Se disuelve rápido y sube el cloro enseguida. Es el indicado para la <b>cloración de choque</b>: después de una fiesta, de un aguacero fuerte o cuando el agua empieza a perder brillo. Viene en frasco y en bolsa de 1 kg. <a href=\"/productos/cloro-granulado/\">Ver ficha</a>.</p>\n<h3>Cloro en Pastilla</h3>\n<p>Se disuelve poco a poco y mantiene el cloro estable durante días. Es para el <b>mantenimiento continuo</b> en clorador, flotador o skimmer. Viene en pastilla de 200 g y en frasco de 1 kg. Te explicamos la diferencia con el granulado en <a href=\"/blog/cloro-granulado-o-cloro-en-pastilla/\">cloro granulado o cloro en pastilla</a>.</p>\n<h3>Algui-Acid (alguicida)</h3>\n<p>Previene y ayuda a eliminar las <b>algas</b>, que son las que ponen el agua verde y las paredes resbalosas. Se usa como prevención en el mantenimiento y como apoyo cuando ya hay algas. En galón. Más en <a href=\"/blog/alguicida-para-piscina/\">alguicida para piscina: para qué sirve</a>.</p>\n<h3>Soda Ash</h3>\n<p>Carbonato de sodio para <b>subir el pH y la alcalinidad</b> cuando están bajos. En presentación de 1 kilo.</p>\n<h3>Sulfato de Aluminio</h3>\n<p>Clarificador: junta las partículas muy finas que dejan el agua <b>turbia o lechosa</b> para que el filtro las atrape o se vayan al fondo. En 1 kilo. Paso a paso en <a href=\"/blog/piscina-turbia-como-aclarar-el-agua/\">piscina turbia: cómo aclarar el agua</a>.</p>\n<h3>Sulfato de Cobre</h3>\n<p>Para el control de algas en estanques, reservorios y espejos de agua. En 1 kilo. Seguí siempre la etiqueta según el uso.</p>\n\n<h2 id=\"segun-agua\">¿Qué necesita tu piscina? Según cómo se ve el agua</h2>\n<ul>\n<li><b>Agua verde:</b> hay algas. Cepillado, cloro de choque con Cloro Granulado y alguicida, con el filtro trabajando. Guía completa: <a href=\"/blog/piscina-verde-que-hacer/\">piscina verde, qué hacer</a>.</li>\n<li><b>Agua turbia o lechosa:</b> partículas finas que el filtro no atrapa, a veces con pH alto. Revisá el filtro, ajustá el pH y usá Sulfato de Aluminio como clarificador.</li>\n<li><b>Agua clara pero con olor fuerte a cloro o que irrita los ojos:</b> casi siempre es pH fuera de rango o cloro combinado con sudor y orina. Medí el pH y hacé una cloración de choque según la etiqueta.</li>\n<li><b>Paredes resbalosas:</b> algas empezando. Cepillá y usá alguicida.</li>\n<li><b>Manchas o sarro en las orillas:</b> agua con pH o alcalinidad desbalanceados. Medí y corregí.</li>\n</ul>\n\n<h2 id=\"rutina\">Rutina de mantenimiento semanal</h2>\n<ol>\n<li>Retirá hojas e insectos con la red.</li>\n<li>Cepillá paredes y piso, y pasá el limpiafondos.</li>\n<li>Medí el pH y el cloro.</li>\n<li>Corregí el pH primero y después ajustá el cloro.</li>\n<li>Revisá que el clorador o flotador tenga pastillas.</li>\n<li>Aplicá alguicida de forma preventiva según la etiqueta.</li>\n<li>Lavá el filtro cuando el manómetro marque presión alta.</li>\n</ol>\n<p>La rutina completa está en <a href=\"/blog/como-mantener-la-piscina-limpia/\">cómo mantener la piscina limpia</a>.</p>\n\n<h2 id=\"mezclas\">Lo que nunca se debe mezclar</h2>\n<ul>\n<li><b>No mezclés los químicos de la piscina entre sí</b> en un mismo balde: agregá uno, dejá que circule y seguí con el siguiente según la etiqueta.</li>\n<li><b>No mezclés cloro con ácidos</b> (como el ácido muriático) ni con vinagre: sueltan gas cloro, que es tóxico. Más en <a href=\"/blog/que-no-mezclar-con-cloro/\">qué no mezclar con cloro</a>.</li>\n<li><b>No mezclés Cloro Granulado con Cloro en Pastilla</b> en el mismo recipiente ni en el clorador.</li>\n<li>Agregá siempre el producto al agua, nunca agua sobre el producto.</li>\n</ul>\n\n<h2 id=\"errores\">Errores comunes</h2>\n<ul>\n<li>Echar más cloro sin medir el pH: si el pH está mal, el cloro no rinde.</li>\n<li>Apagar el filtro para \"ahorrar luz\" justo cuando el agua está turbia o verde.</li>\n<li>Echar la pastilla directo al piso de la piscina: puede manchar el acabado. Usá clorador, flotador o skimmer.</li>\n<li>Bañarse inmediatamente después de un tratamiento de choque: respetá el tiempo que indica la etiqueta.</li>\n<li>Guardar los químicos húmedos, abiertos o juntos.</li>\n</ul>\n\n<h2 id=\"comprar\">Dónde comprar químicos para piscina en Costa Rica</h2>\n<p>La línea León Rojo para piscinas la encontrás en ferreterías de todo el país: pedila por la marca. También podés escribirnos por WhatsApp al <b>8994-4763</b>.</p>\n<h3 id=\"distribuidores\">¿Tenés una ferretería, un hotel o administrás condominios?</h3>\n<p>Vendemos al por mayor toda la línea para piscinas, fabricada en Costa Rica por Químicas Arji, con casi 30 años en el mercado y más de 900 ferreterías y distribuidores en el país.</p>\n<p><a href=\"https://wa.me/50689944763?text=Hola%20Qu%C3%ADmicas%20Arji%2C%20quiero%20informaci%C3%B3n%20de%20la%20l%C3%ADnea%20Le%C3%B3n%20Rojo%20para%20piscinas%20al%20por%20mayor.\" rel=\"nofollow\"><b>Pedí información por WhatsApp →</b></a></p>\n\n<div class=\"warn\"><b>⚠ Seguridad:</b> usá guantes y lentes, y trabajá con buena ventilación. No mezclés químicos de piscina entre sí ni con ácidos o vinagre. Agregalos siempre al agua, nunca agua sobre el producto. Nadie debe bañarse mientras se trata el agua: respetá el tiempo de espera de la etiqueta. Guardalos cerrados, en un lugar fresco y seco, fuera del alcance de niños y mascotas. Las cantidades según el volumen de tu piscina vienen en la etiqueta.</div>\n\n<h2>Guías relacionadas</h2>\n",
+ "blogs": [
+  "piscina-verde-que-hacer",
+  "piscina-turbia-como-aclarar-el-agua",
+  "cloro-granulado-o-cloro-en-pastilla",
+  "alguicida-para-piscina",
+  "que-no-mezclar-con-cloro"
  ]
 }

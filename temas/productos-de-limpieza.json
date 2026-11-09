@@ -1,9 +1,9 @@
 {
  "slug": "productos-de-limpieza",
- "h1": "Productos de limpieza",
- "title": "Productos de limpieza para casa y negocio en Costa Rica | León Rojo",
- "sub": "Vinagre de limpieza, cloro, desinfectante y limpiadores",
- "desc": "Productos de limpieza León Rojo hechos en Costa Rica: vinagre de limpieza, cloro, desinfectante, limpiador de azulejos y cristales, ceras para pisos.",
+ "h1": "Productos de limpieza: cuál usar en cada lugar de la casa",
+ "title": "Productos de limpieza en Costa Rica: cuál usar en cada lugar",
+ "sub": "Vinagre de limpieza, cloro, desinfectante, creolina, limpiadores y ceras · Fabricados en Costa Rica por Químicas Arji",
+ "desc": "Guía de productos de limpieza León Rojo hechos en Costa Rica: vinagre, cloro, desinfectante, creolina y limpiadores. Cuál usar en cada lugar y qué no mezclar.",
  "ids": [
   "vinagre",
   "cloro",
@@ -15,28 +15,66 @@
   "cerapisos"
  ],
  "blog": "usos-del-vinagre-de-limpieza",
- "intro": "<p>Para la limpieza de la casa, el comercio, la oficina o la finca, León Rojo tiene un producto para cada superficie: multiusos, desinfectantes, limpiadores para baño y vidrio, y ceras para dejar los pisos brillantes. Todos fabricados en Costa Rica por Químicas Arji desde hace 29 años.</p>",
- "tips": [
-  "Limpieza diaria y malos olores: Vinagre de Limpieza 3.5% (limón, naranja o manzana canela).",
-  "Desinfectar y blanquear: Cloro doméstico 3% o 4%, o industrial 12%.",
-  "Pisos con aroma: Desinfectante, en 9 aromas.",
-  "Corrales, establos y desagües: Creolina.",
-  "Baños y moho: Limpiador de Azulejos. Vidrios: Limpiador de Cristales.",
-  "Brillo en pisos: Abrillantador de Cerámica y Cera Líquida para Pisos."
- ],
+ "intro": "",
+ "tips": [],
  "seguridad": "Nunca mezclés productos de limpieza entre sí: el cloro con vinagre, ácidos o desinfectantes libera gases tóxicos. Usá guantes, ventilá y mantené todo fuera del alcance de niños. Leé siempre la etiqueta.",
  "faq": [
   [
-   "¿Puedo mezclar vinagre con cloro?",
-   "No, nunca. La mezcla libera un gas peligroso."
+   "¿Qué productos de limpieza necesito en la casa?",
+   "Un multiusos como el vinagre de limpieza, cloro para desinfectar, un desinfectante con aroma para pisos y, según la casa, un limpiador de vidrios y uno para azulejos."
   ],
   [
-   "¿Qué aromas tiene el vinagre de limpieza?",
-   "Limón, naranja y manzana canela."
+   "¿Cuál es la diferencia entre limpiar y desinfectar?",
+   "Limpiar quita la suciedad; desinfectar elimina los microbios. Primero se limpia y después se desinfecta."
+  ],
+  [
+   "¿Se puede mezclar cloro con vinagre?",
+   "Nunca. La mezcla suelta gas cloro, que es tóxico."
+  ],
+  [
+   "¿Se puede mezclar cloro con desinfectante?",
+   "No. Usá uno, enjuagá con agua, ventilá y después el otro."
+  ],
+  [
+   "¿Para qué sirve la creolina?",
+   "Para desinfectar corrales, establos, desagües y áreas exteriores. Es de uso externo, no para la piel ni la cocina."
+  ],
+  [
+   "¿Qué diferencia hay entre el cloro al 3%, 4% y 12%?",
+   "El 3% y el 4% son de uso doméstico; el 12% es industrial, de mayor concentración, y pide más cuidado."
   ],
   [
    "¿Qué aromas tiene el desinfectante?",
-   "Violeta, Lavanda, Pino, Floral, Limón, Frutos Rojos, Bebé, Manzana y Bouquet."
+   "Violeta, lavanda, pino, floral, limón, frutos rojos, bebé, manzana y bouquet."
+  ],
+  [
+   "¿Con qué limpio el moho del baño?",
+   "Con el Limpiador de Azulejos, siguiendo la etiqueta y con buena ventilación."
+  ],
+  [
+   "¿Con qué limpio los vidrios sin que queden marcas?",
+   "Con el Limpiador de Cristales o el Vinagre de Limpieza, secando con microfibra en una sola dirección."
+  ],
+  [
+   "¿Cómo le saco brillo al piso?",
+   "En cerámica, con Abrillantador de Cerámica; en terrazo, mosaico o cemento, con Cera Líquida para Pisos."
+  ],
+  [
+   "¿Dónde compro productos de limpieza León Rojo?",
+   "En ferreterías de todo el país, o por WhatsApp al 8994-4763."
+  ],
+  [
+   "¿Venden al por mayor?",
+   "Sí, a ferreterías, supermercados, distribuidores y empresas. Escribinos por WhatsApp al 8994-4763."
   ]
+ ],
+ "body": "<p class=\"lead\">Para limpiar bien no hace falta tener veinte productos, sino usar el correcto en cada lugar y nunca mezclarlos. En esta guía te explicamos qué producto usar en la cocina, el baño, los pisos, los vidrios, el patio y el negocio, la diferencia entre limpiar y desinfectar, y las mezclas que nunca se deben hacer.</p>\n<p>En Químicas Arji fabricamos en Costa Rica, desde hace casi 30 años, la línea León Rojo de limpieza: <b>Vinagre de Limpieza 3.5%</b>, <b>Cloro</b>, <b>Desinfectante</b>, <b>Creolina</b>, <b>Limpiador de Azulejos</b>, <b>Limpiador de Cristales</b>, <b>Abrillantador de Cerámica</b> y <b>Cera Líquida para Pisos</b>.</p>\n\n<h2>Contenido de esta guía</h2>\n<ul>\n<li><a href=\"#limpiar-desinfectar\">Limpiar no es lo mismo que desinfectar</a></li>\n<li><a href=\"#por-lugar\">Qué usar en cada lugar</a></li>\n<li><a href=\"#productos\">Para qué sirve cada producto</a></li>\n<li><a href=\"#mezclas\">Mezclas que nunca se deben hacer</a></li>\n<li><a href=\"#negocios\">Para negocios, sodas y oficinas</a></li>\n<li><a href=\"#errores\">Errores comunes</a></li>\n<li><a href=\"#comprar\">Dónde comprar</a></li>\n</ul>\n\n<h2 id=\"limpiar-desinfectar\">Limpiar no es lo mismo que desinfectar</h2>\n<p><b>Limpiar</b> es quitar la suciedad, la grasa y el polvo. <b>Desinfectar</b> es eliminar los microbios. El orden importa: primero se limpia y después se desinfecta, porque un desinfectante sobre una superficie sucia se gasta en la mugre y no trabaja bien. Lo explicamos paso a paso en <a href=\"/blog/como-desinfectar-la-casa/\">cómo desinfectar la casa</a>.</p>\n\n<h2 id=\"por-lugar\">Qué usar en cada lugar</h2>\n<ul>\n<li><b>Cocina (grasa y olores):</b> Vinagre de Limpieza. Para desinfectar encimeras, Cloro diluido y bien enjuagado.</li>\n<li><b>Baño (sarro y manchas de agua):</b> Vinagre de Limpieza. <a href=\"/blog/como-limpiar-el-bano-con-vinagre/\">Paso a paso aquí</a>.</li>\n<li><b>Baño (moho y juntas negras):</b> Limpiador de Azulejos.</li>\n<li><b>Inodoro y piso del baño (desinfectar):</b> Cloro, siempre por separado del vinagre.</li>\n<li><b>Pisos de la casa:</b> Desinfectante con aroma en el balde de trapear.</li>\n<li><b>Pisos de cerámica sin brillo:</b> Abrillantador de Cerámica. <a href=\"/blog/como-sacarle-brillo-al-piso-de-ceramica/\">Cómo hacerlo</a>.</li>\n<li><b>Pisos de terrazo, mosaico o cemento:</b> Cera Líquida para Pisos.</li>\n<li><b>Vidrios, espejos y vitrinas:</b> Limpiador de Cristales o Vinagre de Limpieza.</li>\n<li><b>Ropa blanca:</b> Cloro doméstico, según la etiqueta.</li>\n<li><b>Patio, desagües, corrales y establos:</b> Creolina. <a href=\"/blog/creolina-para-que-sirve/\">Para qué sirve</a>.</li>\n</ul>\n\n<h2 id=\"productos\">Para qué sirve cada producto</h2>\n<h3>Vinagre de Limpieza 3.5%</h3>\n<p>El multiusos de todos los días: desengrasa, quita el sarro leve, deja vidrios sin marcas y elimina malos olores. En limón, naranja y manzana canela, en atomizador de 920 ml y galón. Guía completa: <a href=\"/productos/vinagre-de-limpieza/\">Vinagre de Limpieza León Rojo</a>.</p>\n<h3>Cloro</h3>\n<p>Hipoclorito de sodio para desinfectar superficies y pisos y blanquear la ropa. Doméstico al 3% y 4%, e industrial al 12%, en galón.</p>\n<h3>Desinfectante</h3>\n<p>Para pisos y superficies de casas, comercios, oficinas, plantas empacadoras, lecherías y establos. En 9 aromas: violeta, lavanda, pino, floral, limón, frutos rojos, bebé, manzana y bouquet. En galón; se diluye según la etiqueta.</p>\n<h3>Creolina</h3>\n<p>Desinfectante de ágil acción para corrales, establos, desagües y áreas exteriores. En 240 ml, 1/2 litro, litro y galón.</p>\n<h3>Limpiador de Azulejos</h3>\n<p>Para los azulejos del baño y la cocina, el moho de las juntas y las manchas difíciles. En litro y galón.</p>\n<h3>Limpiador de Cristales</h3>\n<p>Para ventanas, espejos, parabrisas y vitrinas sin marcas. En litro repuesto, litro atomizador y galón.</p>\n<h3>Abrillantador de Cerámica y Cera Líquida para Pisos</h3>\n<p>Para devolverles el brillo a los pisos: cerámica en un caso; terrazo, mosaico y cemento en el otro.</p>\n\n<h2 id=\"mezclas\">Mezclas que nunca se deben hacer</h2>\n<ul>\n<li><b>Cloro + vinagre</b> o <b>cloro + ácido muriático:</b> sueltan gas cloro.</li>\n<li><b>Cloro + amoníaco:</b> sueltan gases tóxicos.</li>\n<li><b>Cloro + desinfectante, creolina o desatoradores.</b></li>\n</ul>\n<p>La regla es simple: <b>un producto a la vez</b>, enjuagá con agua y ventilá antes de usar otro. Más en <a href=\"/blog/que-no-mezclar-con-cloro/\">qué no mezclar con cloro</a>.</p>\n\n<h2 id=\"negocios\">Para negocios, sodas y oficinas</h2>\n<p>En un negocio conviene comprar por galón y rellenar los atomizadores: sale más a cuenta y siempre hay producto a mano. Un esquema sencillo: vinagre de limpieza para mesas, vidrios y cocina; desinfectante con aroma para pisos; cloro para baños; y jabón de manos y de vajillas por galón. Si tenés un negocio, escribinos y te ayudamos a armar el pedido.</p>\n\n<h2 id=\"errores\">Errores comunes</h2>\n<ul>\n<li>Mezclar productos \"para que limpien más\".</li>\n<li>Usar más producto del que indica la etiqueta: no limpia mejor y deja residuos.</li>\n<li>Desinfectar sin limpiar antes.</li>\n<li>Usar vinagre o ácidos en mármol o piedra natural.</li>\n<li>Pasar productos a botellas de bebida.</li>\n</ul>\n\n<h2 id=\"comprar\">Dónde comprar productos de limpieza León Rojo</h2>\n<p>En ferreterías de todo el país: pedilos por la marca. También por WhatsApp al <b>8994-4763</b>.</p>\n<h3 id=\"distribuidores\">¿Tenés una ferretería, un supermercado o una cadena?</h3>\n<p>Vendemos al por mayor toda la línea de limpieza, fabricada en Costa Rica por Químicas Arji, con casi 30 años en el mercado y más de 900 ferreterías y distribuidores en el país.</p>\n<p><a href=\"https://wa.me/50689944763?text=Hola%20Qu%C3%ADmicas%20Arji%2C%20quiero%20informaci%C3%B3n%20de%20los%20productos%20de%20limpieza%20Le%C3%B3n%20Rojo%20al%20por%20mayor.\" rel=\"nofollow\"><b>Pedí las condiciones de distribución por WhatsApp →</b></a></p>\n\n<div class=\"warn\"><b>⚠ Seguridad:</b> nunca mezclés productos de limpieza entre sí: el cloro con vinagre, ácidos, amoníaco o desinfectantes libera gases tóxicos. Usá guantes, ventilá y mantené todo fuera del alcance de niños y mascotas, en su envase original. Seguí siempre la etiqueta.</div>\n\n<h2>Guías relacionadas</h2>\n",
+ "blogs": [
+  "como-desinfectar-la-casa",
+  "creolina-para-que-sirve",
+  "que-no-mezclar-con-cloro",
+  "como-limpiar-el-bano-con-vinagre",
+  "como-sacarle-brillo-al-piso-de-ceramica",
+  "como-quitar-el-sarro-del-bano"
  ]
 }
