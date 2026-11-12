@@ -229,6 +229,7 @@ form.quote h3{font-size:1.7rem}
 .note{font-size:.86rem;color:var(--muted);margin:0}
 @media (max-width:860px){.split{grid-template-columns:1fr;gap:32px}.f2{grid-template-columns:1fr}}
 
+.ftbtn{width:100%;font-size:1.15rem;padding:1em 1.3em;margin:0 0 18px}
 .safety{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
 .sbox{border:1px solid var(--line);border-radius:10px;padding:22px;background:var(--panel)}
 .sbox h4{margin:10px 0 6px;font-family:var(--f-label);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:1.15rem}
@@ -427,7 +428,7 @@ blockquote{margin:6px 0 18px;padding:14px 18px;border-left:4px solid var(--red);
   <div class="wrap">
     <a class="brand" href="#inicio"><img src="img/logo.png" alt="León Rojo"><span><b>QUÍMICAS ARJI</b><small>Marca León Rojo</small></span></a>
     <nav class="links" aria-label="Secciones">
-      <a href="#prueba">Probalo</a><a href="#kits">Kits</a><a href="#productos">Productos</a><a href="#biodegradable">Biodegradable</a><a href="#historia">Historia</a><a href="#resenas">Reseñas</a><a href="/blog/">Blog</a><a href="#contacto">Contacto</a>
+      <a href="#productos">Productos</a><a href="#kits">Kits</a><a href="#biodegradable">Biodegradable</a><a href="#historia">Historia</a><a href="#resenas">Reseñas</a><a href="/blog/">Blog</a><a href="#prueba">Probalo</a><a href="#seguridad">Fichas técnicas</a><a href="#contacto">Contacto</a>
     </nav>
     <a class="mblog" href="/blog/">Blog</a>
     <a class="btn btn-wa" href="https://wa.me/50689944763?text=Hola%20Qu%C3%ADmicas%20Arji%2C%20quiero%20hacer%20un%20pedido." target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg>Pedir</a>
@@ -442,8 +443,8 @@ blockquote{margin:6px 0 18px;padding:14px 18px;border-left:4px solid var(--red);
         <h1 style="margin-top:12px">Química de<em>alto poder</em></h1>
         <p class="lead">Grasa, sarro, óxido, cañerías tapadas, piscina verde. Decinos qué querés resolver, probá el producto con tu dedo y pedilo por WhatsApp. Somos los fabricantes del <a href="/productos/acido-muriatico/" style="color:inherit;text-decoration:underline">Ácido Muriático León Rojo</a>.</p>
         <div class="ctas">
-          <a class="btn btn-red" href="#prueba"><svg class="i"><use href="#hand"/></svg>Resolver mi problema</a>
-          <a class="btn btn-ghost" href="#productos">Ver catálogo</a>
+          <a class="btn btn-red" href="#productos">Ver productos</a>
+          <a class="btn btn-ghost" href="#prueba"><svg class="i"><use href="#hand"/></svg>Resolver mi problema</a>
           <button class="btn btn-ghost" id="reorder" type="button" hidden>Repetir mi último pedido</button>
         </div>
         <div class="facts"><span id="nprod">60+ productos</span><span>Registros y permisos al día</span><span>Más de 900 clientes en todo el país</span></div>
@@ -459,35 +460,7 @@ blockquote{margin:6px 0 18px;padding:14px 18px;border-left:4px solid var(--red);
     <div><b>+900</b><span>ferreterías, cadenas y distribuidores</span></div>
   </div></div>
 
-  <section id="prueba" class="lab">
-    <div class="wrap">
-      <div class="sec-head">
-        <div><div class="eyebrow">Paso 1 · Probalo antes de comprar</div><h2>¿Qué necesitás resolver hoy?</h2></div>
-        <p>Elegí tu problema y limpialo con el dedo o el mouse. Te mostramos el producto León Rojo que lo resuelve.</p>
-      </div>
-      <div class="probs" id="probs" role="group" aria-label="Elegí un problema"></div>
-      <div class="lab-grid">
-        <div class="stage" id="labStage"></div>
-        <div class="side">
-          <div class="pcard" id="labCard"></div>
-          <div class="meter"><div class="top"><span id="mLbl">Limpieza</span><span id="mPct">0%</span></div><div class="bar"><i id="mBar"></i></div></div>
-          <div class="score">Problemas resueltos: <b id="score">0</b> de <span id="scoreT">18</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="kits">
-    <div class="wrap">
-      <div class="sec-head">
-        <div><div class="eyebrow">Paso 2 · Llevá el combo completo</div><h2>Kits listos para pedir</h2></div>
-        <p>Todo lo que necesitás para cada trabajo, en un solo toque. Preguntá por precio especial de kit.</p>
-      </div>
-      <div class="kits" id="kitList"></div>
-    </div>
-  </section>
-
-  <section id="productos" style="padding-top:24px">
+  <section id="productos">
     <div class="wrap">
       <div class="sec-head">
         <div><div class="eyebrow">Catálogo León Rojo</div><h2>Nuestros productos</h2></div>
@@ -502,9 +475,19 @@ blockquote{margin:6px 0 18px;padding:14px 18px;border-left:4px solid var(--red);
     </div>
   </section>
 
+  <section id="kits">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Llevá el combo completo</div><h2>Kits listos para pedir</h2></div>
+        <p>Todo lo que necesitás para cada trabajo, en un solo toque. Preguntá por precio especial de kit.</p>
+      </div>
+      <div class="kits" id="kitList"></div>
+    </div>
+  </section>
+
   <section id="como" style="padding-top:24px">
     <div class="wrap">
-      <div class="sec-head"><div><div class="eyebrow">Paso 3 · Así de fácil</div><h2>Cómo pedir</h2></div></div>
+      <div class="sec-head"><div><div class="eyebrow">Así de fácil</div><h2>Cómo pedir</h2></div></div>
       <div class="steps">
         <div class="step"><h4>Elegí</h4><p>Probá los productos y agregalos a tu pedido con la presentación que querés.</p></div>
         <div class="step"><h4>Completá tus datos</h4><p>Nombre y zona de entrega. Toma menos de un minuto.</p></div>
@@ -585,12 +568,32 @@ blockquote{margin:6px 0 18px;padding:14px 18px;border-left:4px solid var(--red);
   </section>
 <script>fetch('/blog/latest.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(L=>{if(!L||!L.length)return;document.getElementById('bgrid').innerHTML=L.slice(0,3).map(p=>'<a class="bcard" href="/blog/'+p.slug+'/"><img src="/img/p/'+p.img+'.jpg" alt="" loading="lazy"><div><b>'+p.title+'</b><small>'+p.desc+'</small></div></a>').join('')}).catch(()=>{});</script>
 
+
+  <section id="prueba" class="lab">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Probalo antes de comprar</div><h2>¿Qué necesitás resolver hoy?</h2></div>
+        <p>Elegí tu problema y limpialo con el dedo o el mouse. Te mostramos el producto León Rojo que lo resuelve.</p>
+      </div>
+      <div class="probs" id="probs" role="group" aria-label="Elegí un problema"></div>
+      <div class="lab-grid">
+        <div class="stage" id="labStage"></div>
+        <div class="side">
+          <div class="pcard" id="labCard"></div>
+          <div class="meter"><div class="top"><span id="mLbl">Limpieza</span><span id="mPct">0%</span></div><div class="bar"><i id="mBar"></i></div></div>
+          <div class="score">Problemas resueltos: <b id="score">0</b> de <span id="scoreT">18</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="seguridad">
     <div class="wrap">
       <div class="sec-head">
-        <div><div class="eyebrow">Uso responsable</div><h2>Seguridad y fichas técnicas</h2></div>
+        <div><div class="eyebrow">Uso responsable</div><h2>Fichas técnicas y seguridad</h2></div>
         <p>Muchos de nuestros productos son químicos de alto poder. Siempre leé la etiqueta antes de usar.</p>
       </div>
+      <a class="btn btn-red ftbtn" href="/productos/fichas-tecnicas/"><svg class="i"><use href="#doc"/></svg>Descargar fichas técnicas (PDF)</a>
       <div class="safety">
         <div class="sbox"><span class="badge"><svg class="i"><use href="#warn"/></svg>Producto peligroso</span><h4>Leé la etiqueta</h4><p>Ácidos, desatoradores, solventes, cloro y preservantes llevan advertencia. Usá guantes y lentes, y trabajá con buena ventilación.</p></div>
         <div class="sbox"><span class="badge r">Nunca mezclar</span><h4>Un producto a la vez</h4><p>No mezcles cloro con ácidos ni con vinagre: liberan gas peligroso. Guardá todo en su envase original, lejos de niños y mascotas.</p></div>
@@ -678,6 +681,7 @@ const IMG=f=>`img/p/${f}.jpg`;
 const byId=id=>P.find(p=>p.id===id);
 const VARL={vinagre:'Aroma',desinfectante:'Aroma',aromatizante:'Aroma',cloro:'Tipo',cerapisos:'Color',suavizante:'Color',ocre:'Color',envases:'Color',atomizadores:'Gatillo'};
 const ls={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const TOP=['superdesatorador','muriatico36','desatoradornc','muriatico29','vinagre','desengrasante','pentacellsolvente','cemento','cola'];
 let cat='todos',q='',showAll=false,cart=ls.get('arji-cart',[]),cur=null,selP=null,selV=null,solved=new Set(ls.get('arji-solved',[]));
 const NDEMO=P.filter(p=>p.demo).length;
 $('#nprod').textContent=P.filter(p=>p.c!=='envases').length+' productos';
@@ -750,7 +754,7 @@ function inCat(p,c){return c==='todos'||(c==='top'?p.star:c==='demo'?p.demo:p.c=
 function chips(){$('#chips').innerHTML=Object.entries(CH).map(([k,v])=>`<button class="chip" type="button" data-c="${k}" aria-pressed="${k===cat}">${v}<span class="n">${P.filter(p=>inCat(p,k)).length}</span></button>`).join('')}
 const norm=s=>s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
 function render(){const t=norm(q.trim());
-  const list=P.filter(p=>inCat(p,cat)&&(!t||norm([p.n,p.s,p.d,...p.u,...(p.vars||[]),...PROBS.filter(x=>x[1]===p.id).map(x=>x[0])].join(' ')).includes(t))).sort((a,b)=>(b.star||0)-(a.star||0));
+  const list=P.filter(p=>inCat(p,cat)&&(!t||norm([p.n,p.s,p.d,...p.u,...(p.vars||[]),...PROBS.filter(x=>x[1]===p.id).map(x=>x[0])].join(' ')).includes(t))).sort((a,b)=>{const i=TOP.indexOf(a.id),j=TOP.indexOf(b.id);return (i<0?99:i)-(j<0?99:j)||(b.star||0)-(a.star||0)});
   const LIM=12,cut=!showAll&&cat==='todos'&&!t&&list.length>LIM;$('#moreWrap').hidden=!cut;if(cut)$('#moreBtn').textContent=`Ver los ${list.length} productos`;
   $('#grid').innerHTML=(cut?list.slice(0,LIM):list).map(p=>`<button class="card" type="button" data-id="${p.id}">
       <div class="ph"><img src="${IMG(p.img[0])}" alt="${p.n}" loading="lazy">
