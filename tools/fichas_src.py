@@ -194,12 +194,12 @@ F = {
   intro='El Arji Bond León Rojo es un aditivo acrílico para repellos, morteros y concretos. Mejora la adherencia y la durabilidad, y se usa como puente de adherencia.',
   pasos=['Limpiá la superficie de polvo, grasa y partes sueltas.', 'Usalo según la proporción que indica la etiqueta para cada trabajo.', 'Aplicá la mezcla o el puente de adherencia.', 'Seguí los tiempos de la etiqueta antes de continuar.'],
   seguridad='Usá guantes y lentes al mezclar. Evitá el contacto con ojos y mantenelo fuera del alcance de niños. Leé la etiqueta.',
-  faq=[['¿Para qué sirve el puente de adherencia?', 'Ayuda a que el repello o el concreto nuevo se pegue bien a la superficie existente.'], ['¿En qué presentaciones viene?', 'En 1/4 de galón y galón.']]),
+  faq=[['¿Para qué sirve el puente de adherencia?', 'Ayuda a que el repello o el concreto nuevo se pegue bien a la superficie existente.'], ['¿En qué presentaciones viene?', 'En litro y galón.']]),
  'acril800': dict(
   intro='El Super Acril-800 León Rojo es un aditivo acrílico para repellos, estucos y concretos. También sirve como sellador y para resanes.',
   pasos=['Limpiá la superficie de polvo y partes sueltas.', 'Usalo según la proporción que indica la etiqueta para cada trabajo.', 'Aplicá la mezcla o el sellador.', 'Respetá los tiempos de secado de la etiqueta.'],
   seguridad='Usá guantes y lentes al mezclar. Evitá el contacto con ojos y mantenelo fuera del alcance de niños. Leé la etiqueta.',
-  faq=[['¿Sirve como sellador?', 'Sí, además de aditivo para repellos, estucos y concretos.'], ['¿En qué presentaciones viene?', 'En 1/4 de galón y galón.']]),
+  faq=[['¿Sirve como sellador?', 'Sí, además de aditivo para repellos, estucos y concretos.'], ['¿En qué presentaciones viene?', 'En litro y galón.']]),
  'tapagoteras': dict(
   intro='El Tapagoteras en Pasta León Rojo sella goteras en techos, canoas y uniones de lámina. Es de fácil aplicación, rápido y efectivo.',
   pasos=['Trabajá en seco: limpiá y secá la zona de la gotera.', 'Retirá óxido y partes sueltas.', 'Aplicá la pasta con espátula o brocha, cubriendo bien la unión o el hueco.', 'Dejá secar según la etiqueta antes de que llueva.'],

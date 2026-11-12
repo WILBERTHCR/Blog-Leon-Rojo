@@ -42,8 +42,8 @@ Imagen = archivo en https://quimicasarji.com/img/p/<imagen>.jpg (ya existe en el
 | Espíritu Mineral | Solvente para pinturas | `b2_15` | 1/2 litro, Litro, Galón |
 | Removedor de Pintura | Para pintura base aceite | `b8_16` | 1/16 galón, 1/8 galón, 1/4 galón |
 | Canfín | Keroseno | `canfin` | 1/2 litro, Litro, Galón |
-| Arji Bond | Aditivo para repellos y concretos | `b6_19` | 1/4 galón, Galón |
-| Super Acril-800 | Aditivo acrílico para construcción | `b8_08` | 1/4 galón, Galón |
+| Arji Bond | Aditivo para repellos y concretos | `b6_19` | Litro, Galón |
+| Super Acril-800 | Aditivo acrílico para construcción | `b8_08` | Litro, Galón |
 | Tapagoteras en Pasta | Fácil aplicación, rápida y efectiva | `b8_09` | 1/16 galón, 1/8 galón, 1/4 galón |
 | Masilla Acrílica | Para grietas | `b3_03` | 1/16 galón, 1/8 galón, 1/4 galón |
 | Ocre | Pigmento para concreto, 4 colores | `b7_14` | 1 kilo |
