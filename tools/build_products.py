@@ -115,7 +115,7 @@ def page(p, f, posts):
 <section class="phero"><div class="gal"><div class="main"><img src="/productos/img/{imgs[0]}.jpg" alt="{e(p['n'])} León Rojo"></div><div class="thumbs">{thumbs}</div></div>
 <div class="pinfo"><span class="eyebrow">León Rojo · {e(cat)}</span><h1>{e(p['n'])} León Rojo</h1><p class="sub">{e(p['s'])}</p>
 <p class="lbl">Presentaciones</p><div class="tags">{pres}</div>{f'<p class="lbl">Aromas / variantes</p><div class="tags">{vars_}</div>' if vars_ else ''}
-<div class="ctas"><a class="btn btn-wa" href="{wa(msg)}" target="_blank" rel="noopener">Pedir por WhatsApp</a>{'' if p['c'] == 'envases' else f'<a class="btn btn-red" href="{wa('Hola Químicas Arji, necesito la ficha técnica de ' + p['n'] + '.')}" target="_blank" rel="noopener">Ficha técnica</a>'}</div>
+<div class="ctas"><a class="btn btn-wa" href="{wa(msg)}" target="_blank" rel="noopener">Pedir por WhatsApp</a>{'' if p['c'] == 'envases' else (''.join(f'<a class="btn btn-red" href="/productos/fichas-tecnicas/{x["file"]}" target="_blank" rel="noopener" download>⬇ Ficha técnica{(" " + e(x["label"].replace("Cloro ", ""))) if x["label"] else ""} (PDF)</a>' for x in FTBY.get(p['id'], [])) or f'<a class="btn btn-red" href="{wa('Hola Químicas Arji, necesito la ficha técnica de ' + p['n'] + '.')}" target="_blank" rel="noopener">Ficha técnica</a>')}</div>
 <p class="note">🏪 También lo encontrás en ferreterías de todo el país: pedí la marca León Rojo en tu ferretería de confianza.</p></div></section>
 <article style="padding-top:10px">
 <h2>¿Para qué sirve?</h2><p>{e(f['intro'] if f else p['d'])}</p>
@@ -131,6 +131,10 @@ def page(p, f, posts):
     open(os.path.join(OUT, s, 'index.html'), 'w', encoding='utf-8').write(head(title, desc, url, imgs[0], ldh) + body + FOOT)
     return s
 
+
+FT = json.load(open(os.path.join(ROOT, 'fichas_pdf', 'fichas.json'), encoding='utf-8')) if os.path.exists(os.path.join(ROOT, 'fichas_pdf', 'fichas.json')) else []
+FTBY = {}
+for _x in FT: FTBY.setdefault(_x['id'], []).append(_x)
 
 HUBS = [json.load(open(os.path.join(ROOT, 'temas', x), encoding='utf-8')) for x in sorted(os.listdir(os.path.join(ROOT, 'temas')))] if os.path.isdir(os.path.join(ROOT, 'temas')) else []
 
@@ -203,7 +207,34 @@ def index(built):
         if not items: continue
         cards += f'<h2>{e(name)}</h2><div class="rel">' + ''.join(f'<a href="/productos/{slug(p["n"])}/"><img src="/productos/img/t/{p["img"][0]}.jpg" alt="" loading="lazy"><span>{e(p["n"])}</span></a>' for p in items) + '</div>'
     h = head('Productos León Rojo · Catálogo completo | Químicas Arji', 'Catálogo de productos químicos León Rojo hechos en Costa Rica: limpieza, taller y autos, construcción, madera y piscinas. Presentaciones, usos y seguridad.', 'https://quimicasarji.com/productos/', 'b1_14', '')
-    open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(h + f'<main class="wrap prod"><nav class="crumbs"><a href="/">Inicio</a> › Productos</nav><section style="padding-top:16px"><span class="eyebrow">Catálogo León Rojo</span><h1>Nuestros productos</h1><img src="/productos/img/linea_completa_1.jpg" alt="Línea completa de productos León Rojo" style="width:100%;border-radius:12px;margin:8px 0 18px;background:#F2F2F0"><p class="lead">Fabricados en Costa Rica desde hace 29 años. Tocá un producto para ver presentaciones, usos y precauciones.</p></section><h2>Guías por tema</h2><div class="uses">{''.join(f'<a class="use" style="text-decoration:none" href="/productos/{h["slug"]}/">{e(h.get("label", h["h1"]))}</a>' for h in HUBS)}</div>{cards}<p style="padding-bottom:40px"></p></main>' + FOOT)
+    open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(h + f'<main class="wrap prod"><nav class="crumbs"><a href="/">Inicio</a> › Productos</nav><section style="padding-top:16px"><span class="eyebrow">Catálogo León Rojo</span><h1>Nuestros productos</h1><img src="/productos/img/linea_completa_1.jpg" alt="Línea completa de productos León Rojo" style="width:100%;border-radius:12px;margin:8px 0 18px;background:#F2F2F0"><p class="lead">Fabricados en Costa Rica desde hace 29 años. Tocá un producto para ver presentaciones, usos y precauciones.</p></section><p><a class="btn btn-red" href="/productos/fichas-tecnicas/">⬇ Fichas técnicas en PDF</a></p><h2>Guías por tema</h2><div class="uses">{''.join(f'<a class="use" style="text-decoration:none" href="/productos/{h["slug"]}/">{e(h.get("label", h["h1"]))}</a>' for h in HUBS)}</div>{cards}<p style="padding-bottom:40px"></p></main>' + FOOT)
+
+
+def fichas_index(built):
+    d = os.path.join(OUT, 'fichas-tecnicas'); os.makedirs(d, exist_ok=True)
+    for x in FT: shutil.copy(os.path.join(ROOT, 'fichas_pdf', x['file']), os.path.join(d, x['file']))
+    url = 'https://quimicasarji.com/productos/fichas-tecnicas/'
+    cards = ''
+    for c, name in CATS.items():
+        items = [x for x in FT if BYID.get(x['id'], {}).get('c') == c]
+        if not items: continue
+        rows = ''
+        for x in items:
+            p = BYID[x['id']]; nm = x['label'] or p['n']
+            link = f'<a href="/productos/{built[x["id"]]}/">{e(nm)}</a>' if x['id'] in built else e(nm)
+            rows += (f'<div class="ft"><img src="/productos/img/t/{p["img"][0]}.jpg" alt="" loading="lazy"><div><b>{link}</b>'
+                     f'<small>{e(", ".join(p.get("pres", [])))}{" · Solo uso profesional" if p.get("pro") else ""}</small></div>'
+                     f'<a class="btn btn-red" href="/productos/fichas-tecnicas/{x["file"]}" target="_blank" rel="noopener" download>⬇ PDF</a></div>')
+        cards += f'<h2>{e(name)}</h2>{rows}'
+    ld = '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@type": "CollectionPage", "name": "Fichas técnicas León Rojo", "url": url, "inLanguage": "es-CR", "publisher": {"@type": "Organization", "name": "Químicas Arji WGAC S.A."}}, ensure_ascii=False) + '</script>'
+    h = head('Fichas técnicas León Rojo (PDF) | Químicas Arji · Costa Rica', 'Descargá las fichas técnicas de los productos León Rojo en PDF: modo de uso, diluciones, precauciones, datos técnicos, registro sanitario y presentaciones.', url, 'b1_14', ld)
+    css = '<style>.ft{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #e5e5e2}.ft img{width:56px;height:56px;object-fit:contain;border-radius:8px;background:#F2F2F0}.ft div{flex:1;min-width:0}.ft b{display:block}.ft b a{color:inherit}.ft small{color:#666;font-size:.85rem}.ft .btn{white-space:nowrap;padding:8px 14px}</style>'
+    body = (f'{css}<main class="wrap prod"><nav class="crumbs"><a href="/">Inicio</a> › <a href="/productos/">Productos</a> › Fichas técnicas</nav>'
+            f'<section style="padding-top:16px"><span class="eyebrow">Para clientes, ferreterías e instituciones</span><h1>Fichas técnicas León Rojo</h1>'
+            f'<p class="lead">Cada ficha trae el modo de uso, las diluciones, las precauciones, los primeros auxilios, los datos técnicos, el registro del Ministerio de Salud y las presentaciones. Descargalas en PDF o pedí las fichas de datos de seguridad por WhatsApp al 8994-4763.</p></section>'
+            f'{cards}<p class="note" style="margin:24px 0 40px">¿Sos ferretería, distribuidor, cadena o institución? <a href="{wa("Hola Químicas Arji, tengo un negocio y quiero información de distribución de León Rojo.")}" target="_blank" rel="noopener">Pedí condiciones por WhatsApp</a>.</p></main>')
+    open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(h + body + FOOT)
+    return 'fichas-tecnicas'
 
 
 if __name__ == '__main__':
@@ -218,5 +249,6 @@ if __name__ == '__main__':
         built[pid] = page(BYID[pid], ficha(pid), posts)
     index(built)
     hubs = [hub(h, posts) for h in HUBS]
+    if FT: hubs.append(fichas_index(built))
     json.dump([f'https://quimicasarji.com/productos/{s}/' for s in hubs + list(built.values())], open(os.path.join(OUT, 'urls.json'), 'w'))
     print('ok', len(built), list(built.values()))

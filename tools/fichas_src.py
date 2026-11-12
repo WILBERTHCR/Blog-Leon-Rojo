@@ -80,7 +80,7 @@ F = {
   intro='El Desoxidante de Metales León Rojo elimina el óxido de herramientas, piezas y superficies metálicas. Es el paso previo ideal antes de pintar.',
   pasos=['Ponete guantes y lentes y trabajá en un lugar ventilado.', 'Quitá el óxido suelto con cepillo de alambre o lija.', 'Aplicá el producto según la etiqueta.', 'Dejalo actuar el tiempo que indica la etiqueta.', 'Limpiá y secá bien la pieza antes de pintarla.'],
   seguridad='Producto químico. Usá guantes, lentes y buena ventilación. No lo mezclés con cloro ni con otros productos. Mantenelo cerrado y fuera del alcance de niños, y leé siempre la etiqueta.',
-  faq=[['¿Sirve antes de pintar?', 'Sí, es para dejar el metal sin óxido antes de pintar.'], ['¿En qué presentaciones viene?', 'En 1/2 litro, litro y galón.']]),
+  faq=[['¿Sirve antes de pintar?', 'Sí, es para dejar el metal sin óxido antes de pintar.'], ['¿En qué presentaciones viene?', 'En litro, galón, pichinga de 20 L y tambor de 208 L.']]),
  'aromatizante': dict(
   intro='El Aromatizante para Carro León Rojo viene en atomizador y deja el carro con olor agradable por días. Hay 10 aromas para escoger, y es muy usado en lavacar, taxis y busetas.',
   pasos=['Agitá el atomizador.', 'Rociá en alfombras, tapicería o el ambiente del carro.', 'Evitá rociar directo en el tablero, el vidrio o la cara.', 'Dejá ventilar un momento antes de cerrar el carro.'],
@@ -211,7 +211,7 @@ F = {
   seguridad='Evitá el contacto con los ojos y mantenela fuera del alcance de niños. Leé la etiqueta.',
   faq=[['¿Se puede pintar encima?', 'Sí, se usa justamente para dejar la pared lista para pintar.'], ['¿En qué presentaciones viene?', 'En 1/16, 1/8 y 1/4 de galón.']]),
  'ocre': dict(
-  intro='El Ocre León Rojo es un pigmento para dar color a pisos, pilas, paredes y posteos de concreto. Viene en rojo, azul, verde y negro.',
+  intro='El Ocre León Rojo es un pigmento para dar color a pisos, pilas, paredes y posteos de concreto. Viene en rojo, amarillo, azul, verde y negro.',
   pasos=['Medí el pigmento según la etiqueta y el tono que buscás.', 'Mezclalo bien con los materiales secos antes de agregar agua.', 'Prepará la mezcla de una sola vez para que el color quede parejo.', 'Aplicá y dejá curar como de costumbre.'],
   seguridad='Usá guantes y mascarilla al manipular el polvo y evitá el contacto con los ojos. Mantenelo fuera del alcance de niños.',
   faq=[['¿Qué colores hay?', 'Rojo, azul, verde y negro.'], ['¿En qué presentación viene?', 'En bolsa de 1 kilo.']]),
@@ -264,13 +264,13 @@ F = {
   intro='El Cloro Granulado León Rojo mantiene el agua de la piscina limpia y libre de bacterias y algas. Se usa en piscinas de casa, hoteles, condominios y jacuzzis.',
   pasos=['Medí el pH y el cloro del agua antes de aplicar.', 'Calculá la cantidad según el volumen de la piscina y lo que indica la etiqueta.', 'Disolvelo primero en un balde con agua (siempre el producto sobre el agua).', 'Repartilo por la piscina con el filtro encendido.', 'Esperá el tiempo que indica la etiqueta antes de bañarse.'],
   seguridad=PISC,
-  faq=[['¿Qué diferencia hay con el cloro en pastilla?', 'El granulado se disuelve rápido; la pastilla se disuelve poco a poco y sirve para el mantenimiento continuo.'], ['¿En qué presentaciones viene?', 'En frasco de 1 kg y bolsa de 1 kg.']],
+  faq=[['¿Qué diferencia hay con el cloro en pastilla?', 'El granulado se disuelve rápido; la pastilla se disuelve poco a poco y sirve para el mantenimiento continuo.'], ['¿En qué presentaciones viene?', 'En pote de 1 kg, presentación de 4,4 kg y cuñete de 50 kg.']],
   blog='como-mantener-la-piscina-limpia'),
  'cloropastilla': dict(
   intro='El Cloro en Pastilla León Rojo es ácido tricloroisocianúrico al 90% para la cloración y el mantenimiento de piscinas. Se disuelve poco a poco y mantiene el cloro estable.',
   pasos=['Medí el pH y el cloro del agua.', 'Colocá las pastillas en el clorador, flotador o skimmer, nunca sueltas en el fondo.', 'Usá la cantidad que indica la etiqueta según el volumen de la piscina.', 'Revisá el nivel de cloro con regularidad.'],
   seguridad=PISC,
-  faq=[['¿Las puedo tirar directo a la piscina?', 'No es lo recomendable: van en clorador, flotador o skimmer para que se disuelvan de forma pareja.'], ['¿En qué presentaciones viene?', 'Pastilla de 200 g y frasco de 1 kg.']],
+  faq=[['¿Las puedo tirar directo a la piscina?', 'No es lo recomendable: van en clorador, flotador o skimmer para que se disuelvan de forma pareja.'], ['¿En qué presentaciones viene?', 'Pastilla de 200 g, pote de 1 kg y cuñete de 50 kg.']],
   blog='como-mantener-la-piscina-limpia'),
  'alguiacid': dict(
   intro='El Algui-Acid León Rojo es un alguicida que previene y elimina las algas en el agua de la piscina, para el tratamiento inicial y el mantenimiento semanal.',

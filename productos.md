@@ -11,17 +11,17 @@ Imagen = archivo en https://quimicasarji.com/img/p/<imagen>.jpg (ya existe en el
 | Cera en Pasta para Autos | Protección y brillo para la pintura | `b3_01` | 290 g |
 | Cera Líquida para Autos | Brillo rápido en atomizador | `b2_04` | Litro atomizador |
 | Restaurador de Partes Negras | Recupera plásticos y hules opacos | `b3_02` | 290 g |
-| Llantilux-80 | Abrillantador para llantas | `b5_06` | Litro, Galón |
+| Llantilux-80 | Abrillantador para llantas | `b5_06` | Litro, Galón, Pichinga 20 L, Tambor 208 L |
 | Llantilux-1000 | Abrillantador para llantas, alto poder | `b8_12` | Litro, Galón |
 | Abrillantador de Superficies | Tableros, asientos y vinil | `b7_08` | 250 ml atomizador, 1/2 litro, Litro, Galón |
 | ALUX-500 | Limpiador de aluminio | `b2_10` | Litro repuesto, Litro atomizador, Galón |
 | Coolant | Refrigerante para radiador | `b2_11` | Galón |
 | Grasa Multiusos | Lubricación de piezas y mecanismos | `b1_05` | 1/32 galón, 1/16 galón, 1/8 galón, 1/4 galón |
-| Desoxidante de Metales | Quita el óxido de herramientas y piezas | `b6_13` | 1/2 litro, Litro, Galón |
+| Desoxidante de Metales | Quita el óxido de herramientas y piezas | `b6_13` | Litro, Galón, Pichinga 20 L, Tambor 208 L |
 | Aromatizante para Carro | 10 aromas en atomizador | `b8_13` | Atomizador |
 | Vinagre de Limpieza 3.5% | Limpia, desengrasa y elimina malos olores | `b8_36` | Atomizador 920 ml, Galón |
 | Desinfectante | Uso industrial y doméstico, 9 aromas | `b6_09` | Galón |
-| Creolina | Desinfectante de ágil acción | `b8_05` | 240 ml, 1/2 litro, Litro, Galón |
+| Creolina | Desinfectante de ágil acción | `b8_05` | 240 ml, 1/2 litro, Litro, Galón, Pichinga 20 L, Tambor 208 L |
 | Cloro | Doméstico 3% y 4%, industrial 12% | `b4_11` | Galón |
 | Limpiador de Azulejos | Elimina bacterias y moho | `b5_18` | Litro, Galón |
 | Limpiador de Cristales | Vidrios y espejos sin marcas | `b6_17` | Litro repuesto, Litro atomizador, Galón |
@@ -34,7 +34,7 @@ Imagen = archivo en https://quimicasarji.com/img/p/<imagen>.jpg (ya existe en el
 | Super Desatorador | De cañerías, ácido sulfúrico | `b3_11` | 1/2 litro, Litro, Galón |
 | Desatorador de Cañerías NC | Soda cáustica líquida 50% | `b3_15` | 1/2 litro, Litro, Galón |
 | Super Potasa | Para cañerías, inodoros y desagües | `b5_04` | 300 g |
-| Ácido Muriático 29% | Solución de ácido clorhídrico | `b3_19` | 1/2 litro, Litro, Galón |
+| Ácido Muriático 29% | Solución de ácido clorhídrico | `b3_19` | 1/2 litro, Litro, Galón, Pichinga 20 L, Tambor 208 L |
 | Super Ácido Muriático 36% | Máxima concentración | `b4_04` | 1/2 litro, Litro, Galón |
 | Detergente en Polvo Industrial | Talleres, aceras y patios | `b7_20` | 1 kg, 2 kg, 5 kg, 10 kg, 25 kg |
 | Thinner Industrial NC | Diluyente para lacas y pinturas | `b1_18` | 1/2 litro, Litro, Galón |
@@ -46,7 +46,7 @@ Imagen = archivo en https://quimicasarji.com/img/p/<imagen>.jpg (ya existe en el
 | Super Acril-800 | Aditivo acrílico para construcción | `b8_08` | Litro, Galón |
 | Tapagoteras en Pasta | Fácil aplicación, rápida y efectiva | `b8_09` | 1/16 galón, 1/8 galón, 1/4 galón |
 | Masilla Acrílica | Para grietas | `b3_03` | 1/16 galón, 1/8 galón, 1/4 galón |
-| Ocre | Pigmento para concreto, 4 colores | `b7_14` | 1 kilo |
+| Ocre | Pigmento para concreto, 5 colores (rojo, amarillo, azul, verde, negro) | `b7_14` | 1 kilo |
 | Alquitrán | Preservante para postes y cercas | `b7_10` | Galón |
 | Cemento de Contacto | Fácil aplicación, adhesión inmediata | `b2_20` | 1/48 galón, 1/32 galón, 1/16 galón, 1/8 galón, 1/4 galón |
 | Cola Blanca | Para madera | `b3_08` | 1/16 galón, 1/8 galón, 1/4 galón |
@@ -56,8 +56,8 @@ Imagen = archivo en https://quimicasarji.com/img/p/<imagen>.jpg (ya existe en el
 | Kontrol Wood | Preservante concentrado, uso industrial | `b8_23` | Litro, Galón |
 | Arjibor | Preservante para madera | `b8_27` | Litro, Galón |
 | Arjicromo | Preservante para madera | `b8_28` | Litro, Galón |
-| Cloro Granulado | Para piscinas | `b5_12` | Frasco 1 kg, Bolsa 1 kg |
-| Cloro en Pastilla | Para piscinas | `b7_18` | Pastilla 200 g, Frasco 1 kg |
+| Cloro Granulado | Para piscinas | `b5_12` | Pote 1 kg, 4,4 kg, Cuñete 50 kg |
+| Cloro en Pastilla | Para piscinas | `b7_18` | Pastilla 200 g, Pote 1 kg, Cuñete 50 kg |
 | Algui-Acid | Alguicida para piscinas | `b5_15` | Galón |
 | Soda Ash | Carbonato de sodio | `b7_11` | 1 kilo |
 | Sulfato de Aluminio | Clarificación de agua | `b7_12` | 1 kilo |
