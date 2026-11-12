@@ -16,6 +16,7 @@ if [ "$CHG" = 1 ]; then
   curl -s -m 20 -H "Content-Type: application/json; charset=utf-8" -d "{\"host\":\"quimicasarji.com\",\"key\":\"$K\",\"keyLocation\":\"https://quimicasarji.com/$K.txt\",\"urlList\":[$L]}" https://api.indexnow.org/indexnow >/dev/null 2>&1
 fi
 [ -f site/index.html ] && cp -f site/index.html "$HOME/public_html/index.html"
+[ -d site/fichas-tecnicas ] && mkdir -p "$HOME/public_html/fichas-tecnicas" && cp -rf site/fichas-tecnicas/. "$HOME/public_html/fichas-tecnicas/"
 [ -d site/audio ] && mkdir -p "$HOME/public_html/audio" && cp -rf site/audio/. "$HOME/public_html/audio/"
 if [ -f site/.htaccess ]; then
   H="$HOME/public_html/.htaccess"

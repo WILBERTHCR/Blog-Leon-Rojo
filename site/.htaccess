@@ -12,7 +12,7 @@ RewriteRule ^(.*)$ https://quimicasarji.com/$1 [R=301,L]
 
 # Páginas viejas -> secciones de la web nueva (evita errores 404 en Google)
 RewriteRule ^nuestros-productos/?$ /productos/ [R=301,L]
-RewriteRule ^fichas-tecnicas/?$ /productos/ [R=301,L]
+RewriteRule ^productos/fichas-tecnicas(/.*)?$ /fichas-tecnicas/ [R=301,L]
 RewriteRule ^sobre-nosotros/?$ /#historia [R=301,NE,L]
 RewriteRule ^contactanos/?$ /#contacto [R=301,NE,L]
 RewriteRule ^m/.*$ / [R=301,L]
