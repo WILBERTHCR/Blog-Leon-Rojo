@@ -37,8 +37,12 @@
 .mblog{display:none;font-family:var(--f-label);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.95rem;text-decoration:none;color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:.55em .9em}
 @media (max-width:860px){.mblog{display:inline-flex;margin-left:auto}.top .mblog + .btn{margin-left:0}}
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
+<link rel="preload" href="/redes/fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/redes/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/redes/fonts/barlow-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/redes/fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/redes/web/logo-leon-rojo-400.webp" as="image" fetchpriority="high">
+<style>@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url(/redes/fonts/anton-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Barlow';font-style:normal;font-weight:400;font-display:swap;src:url(/redes/fonts/barlow-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Barlow';font-style:normal;font-weight:500;font-display:swap;src:url(/redes/fonts/barlow-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Barlow';font-style:normal;font-weight:600;font-display:swap;src:url(/redes/fonts/barlow-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Barlow';font-style:normal;font-weight:700;font-display:swap;src:url(/redes/fonts/barlow-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:500;font-display:swap;src:url(/redes/fonts/barlow-condensed-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(/redes/fonts/barlow-condensed-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(/redes/fonts/barlow-condensed-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style>
 <style>
 /* Layout: label-strip identity — black band hero with the lion, a hands-on "taller de prueba" canvas, catalog of product labels, order tray pinned bottom */
 :root{
@@ -93,7 +97,7 @@ nav.links a:hover{color:var(--fg)}
 .hero h1 em{font-style:normal;color:var(--red);display:block}
 .hero p.lead{font-size:1.18rem;color:var(--muted);max-width:34em;margin:22px 0 28px}
 .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
-.lion{justify-self:center;width:min(100%,380px);filter:drop-shadow(0 20px 40px rgba(227,20,27,.35));animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.lion{justify-self:center;width:min(100%,380px);height:auto;filter:drop-shadow(0 20px 40px rgba(227,20,27,.35));animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
 @keyframes rise{from{transform:translateY(18px) scale(.96)}to{transform:none}}
 .facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:36px;font-family:var(--f-label);text-transform:uppercase;letter-spacing:.08em;font-size:.9rem;color:var(--muted)}
 .facts span{display:flex;align-items:center;gap:8px}
@@ -418,7 +422,7 @@ blockquote{margin:6px 0 18px;padding:14px 18px;border-left:4px solid var(--red);
   <canvas id="embers"></canvas>
   <button class="skip" id="skip" type="button">Saltar</button>
   <div class="ctr">
-    <button class="lionbtn" id="lionbtn" type="button" aria-label="Tocá el león para entrar"><img src="img/logo.png" alt="León Rojo"></button>
+    <button class="lionbtn" id="lionbtn" type="button" aria-label="Tocá el león para entrar"><img src="/redes/web/logo-leon-rojo-400.webp" width="400" height="421" fetchpriority="high" alt="León Rojo"></button>
     <div class="tap">Tocá el león</div>
     <div class="sub">Químicas Arji · Alto poder desde hace 29 años</div>
   </div>
@@ -426,7 +430,7 @@ blockquote{margin:6px 0 18px;padding:14px 18px;border-left:4px solid var(--red);
 <div class="flash" id="flash"></div>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#inicio"><img src="img/logo.png" alt="León Rojo"><span><b>QUÍMICAS ARJI</b><small>Marca León Rojo</small></span></a>
+    <a class="brand" href="#inicio"><img src="/redes/web/logo-leon-rojo-96.webp" width="96" height="101" alt="León Rojo"><span><b>QUÍMICAS ARJI</b><small>Marca León Rojo</small></span></a>
     <nav class="links" aria-label="Secciones">
       <a href="#productos">Productos</a><a href="#kits">Kits</a><a href="#biodegradable">Biodegradable</a><a href="#historia">Historia</a><a href="#resenas">Reseñas</a><a href="/blog/">Blog</a><a href="#prueba">Probalo</a><a href="#seguridad">Fichas técnicas</a><a href="#contacto">Contacto</a>
     </nav>
@@ -449,7 +453,7 @@ blockquote{margin:6px 0 18px;padding:14px 18px;border-left:4px solid var(--red);
         </div>
         <div class="facts"><span id="nprod">60+ productos</span><span>Registros y permisos al día</span><span>Más de 900 clientes en todo el país</span></div>
       </div>
-      <img class="lion" src="img/logo.png" alt="Logo León Rojo: cabeza de león roja">
+      <img class="lion" src="/redes/web/logo-leon-rojo-400.webp" width="400" height="421" fetchpriority="high" alt="Logo León Rojo: cabeza de león roja">
     </div>
   </div>
 
@@ -562,11 +566,11 @@ blockquote{margin:6px 0 18px;padding:14px 18px;border-left:4px solid var(--red);
   <section id="blog">
     <div class="wrap">
       <div class="sec-head"><div><div class="eyebrow">Blog León Rojo</div><h2>Guías prácticas</h2></div><p>Cómo destapar, desengrasar, limpiar y mantener con seguridad, paso a paso.</p></div>
-      <div class="bgrid" id="bgrid"><a class="bcard" href="/blog/como-destapar-una-caneria/"><img src="/img/p/b3_11.jpg" alt="" loading="lazy"><div><b>Cómo destapar una cañería tapada paso a paso</b><small>Guía práctica para destapar cañerías, inodoros y desagües con desatorador, sin dañar la tubería y con las precauciones correctas.</small></div></a><a class="bcard" href="/blog/acido-muriatico-para-que-sirve/"><img src="/img/p/b4_04.jpg" alt="" loading="lazy"><div><b>Ácido muriático: para qué sirve y cómo usarlo con seguridad</b><small>Usos del ácido muriático en limpieza de obra, pisos, ladrillo y piedra, diferencias entre 29% y 36% y precauciones básicas.</small></div></a><a class="bcard" href="/blog/como-limpiar-el-motor-del-carro/"><img src="/img/p/b1_14.jpg" alt="" loading="lazy"><div><b>Cómo limpiar el motor del carro con desengrasante</b><small>Paso a paso para quitar grasa, aceite y carbonilla del motor con desengrasante industrial, cuidando las partes eléctricas.</small></div></a></div>
+      <div class="bgrid" id="bgrid"><a class="bcard" href="/blog/como-destapar-una-caneria/"><img src="/img/p/b3_11.jpg" alt="" width="400" height="300" loading="lazy"><div><b>Cómo destapar una cañería tapada paso a paso</b><small>Guía práctica para destapar cañerías, inodoros y desagües con desatorador, sin dañar la tubería y con las precauciones correctas.</small></div></a><a class="bcard" href="/blog/acido-muriatico-para-que-sirve/"><img src="/img/p/b4_04.jpg" alt="" width="400" height="300" loading="lazy"><div><b>Ácido muriático: para qué sirve y cómo usarlo con seguridad</b><small>Usos del ácido muriático en limpieza de obra, pisos, ladrillo y piedra, diferencias entre 29% y 36% y precauciones básicas.</small></div></a><a class="bcard" href="/blog/como-limpiar-el-motor-del-carro/"><img src="/img/p/b1_14.jpg" alt="" width="400" height="300" loading="lazy"><div><b>Cómo limpiar el motor del carro con desengrasante</b><small>Paso a paso para quitar grasa, aceite y carbonilla del motor con desengrasante industrial, cuidando las partes eléctricas.</small></div></a></div>
       <a class="btn btn-red ball" href="/blog/">Ver todas las guías</a>
     </div>
   </section>
-<script>fetch('/blog/latest.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(L=>{if(!L||!L.length)return;document.getElementById('bgrid').innerHTML=L.slice(0,3).map(p=>'<a class="bcard" href="/blog/'+p.slug+'/"><img src="/img/p/'+p.img+'.jpg" alt="" loading="lazy"><div><b>'+p.title+'</b><small>'+p.desc+'</small></div></a>').join('')}).catch(()=>{});</script>
+<script>fetch('/blog/latest.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(L=>{if(!L||!L.length)return;document.getElementById('bgrid').innerHTML=L.slice(0,3).map(p=>'<a class="bcard" href="/blog/'+p.slug+'/"><img src="/img/p/'+p.img+'.jpg" alt="" width="400" height="300" loading="lazy"><div><b>'+p.title+'</b><small>'+p.desc+'</small></div></a>').join('')}).catch(()=>{});</script>
 
 
   <section id="prueba" class="lab">
@@ -607,7 +611,7 @@ blockquote{margin:6px 0 18px;padding:14px 18px;border-left:4px solid var(--red);
   <div class="wrap">
     <div class="fgrid">
       <div class="fb">
-        <a class="brand" href="#inicio"><img src="img/logo.png" alt=""><span><b>QUÍMICAS ARJI</b><small>WGAC S.A.</small></span></a>
+        <a class="brand" href="#inicio"><img src="/redes/web/logo-leon-rojo-96.webp" width="96" height="101" alt=""><span><b>QUÍMICAS ARJI</b><small>WGAC S.A.</small></span></a>
         <p style="color:var(--muted);margin:14px 0 0;max-width:24em">Fabricantes de productos químicos León Rojo.<br>Del cruce de San Miguel hacia Aserrí, 200 m este. Desamparados, San José.<br>Lunes a jueves 7 a.m. a 5 p.m. · Viernes 7 a.m. a 3 p.m.</p>
       </div>
       <div><h5>Pedidos por WhatsApp</h5><div class="contact"><span>8994-4763</span><button class="copy" data-copy="89944763">Copiar</button></div></div>
@@ -641,7 +645,7 @@ blockquote{margin:6px 0 18px;padding:14px 18px;border-left:4px solid var(--red);
 <div class="toast" id="toast"></div>
 <div class="helper" id="helper" hidden>
   <button class="hx" id="hx" type="button" aria-label="Cerrar">×</button>
-  <img src="img/logo.png" alt="">
+  <img src="/redes/web/logo-leon-rojo-96.webp" width="96" height="101" alt="">
   <div><b>¿No sabés cuál producto usar?</b><p>Contanos qué querés limpiar o reparar y te recomendamos el indicado.</p>
   <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/50689944763?text=Hola%20Qu%C3%ADmicas%20Arji%2C%20necesito%20ayuda%20para%20elegir%20un%20producto.%20Quiero%20limpiar%3A%20"><svg class="i"><use href="#wa"/></svg>Preguntar por WhatsApp</a></div>
 </div>
