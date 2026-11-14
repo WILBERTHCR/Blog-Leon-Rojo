@@ -46,5 +46,12 @@ if os.path.exists(pu):
     u.append(f'  <url><loc>https://quimicasarji.com/productos/</loc><lastmod>{last}</lastmod><priority>0.8</priority></url>')
     if os.path.exists(os.path.join(ROOT,'site','fichas-tecnicas','index.html')): u.append(f'  <url><loc>https://quimicasarji.com/fichas-tecnicas/</loc><lastmod>{last}</lastmod><priority>0.7</priority></url>')
     u+=[f'  <url><loc>{x}</loc>'+(f'<lastmod>{last}</lastmod><priority>0.9</priority>' if x.endswith('/productos/acido-muriatico/') else '<priority>0.7</priority>')+'</url>' for x in json.load(open(pu))]
+    pdfdir=os.path.join(ROOT,'site','fichas-tecnicas','pdf')
+    if os.path.isdir(pdfdir):
+        import datetime
+        for f in sorted(os.listdir(pdfdir)):
+            if f.lower().endswith('.pdf'):
+                d=datetime.date.fromtimestamp(os.path.getmtime(os.path.join(pdfdir,f))).isoformat()
+                u.append(f'  <url><loc>https://quimicasarji.com/fichas-tecnicas/pdf/{f}</loc><lastmod>{d}</lastmod><priority>0.5</priority></url>')
 open(os.path.join(ROOT,'sitemap.xml'),'w',encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+'\n'.join(u)+'\n</urlset>\n')
 print('ok',len(POSTS))
