@@ -95,7 +95,8 @@ F = {
   intro='La Creolina León Rojo es un desinfectante de ágil acción para corrales, establos, desagües y áreas exteriores. Es un producto tradicional de finca y de patio.',
   pasos=['Ponete guantes y trabajá con buena ventilación.', 'Diluila en agua según la etiqueta.', 'Aplicala en el área a desinfectar.', 'Lavá los utensilios con agua después de usarla.'],
   seguridad='Producto de uso externo para áreas y superficies. Usá guantes y lentes, no lo apliqués sobre la piel ni en utensilios de cocina, y no lo mezclés con otros productos. Mantenela fuera del alcance de niños y mascotas y leé la etiqueta.',
-  faq=[['¿Dónde se usa?', 'En corrales, establos, desagües y áreas exteriores.'], ['¿En qué presentaciones viene?', 'En 240 ml, 1/2 litro, litro y galón.']]),
+  faq=[['¿Dónde se usa?', 'En corrales, establos, desagües y áreas exteriores.'], ['¿Para qué sirve la creolina en la casa?', 'Para desinfectar desagües, rejillas, el área de la basura, patios y cocheras, siempre diluida según la etiqueta. Para los pisos de adentro conviene un desinfectante con aroma.'], ['¿En qué presentaciones viene?', 'En 240 ml, 1/2 litro, litro y galón, y en pichinga de 20 L y tambor de 208 L.']],
+  blog='creolina-para-que-sirve'),
  'cloro': dict(
   intro='El Cloro León Rojo es hipoclorito de sodio para desinfectar superficies, pisos y blanquear la ropa. Viene en versión doméstica al 3% y 4% y en versión industrial al 12%.',
   pasos=['Ventilá el lugar y ponete guantes.', 'Diluilo en agua según lo que indica la etiqueta para cada uso.', 'Aplicalo en pisos y superficies, o agregalo al lavado de ropa blanca.', 'Enjuagá con agua cuando la etiqueta lo indique.'],
