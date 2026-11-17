@@ -45,7 +45,9 @@ pu=os.path.join(ROOT,'productos','urls.json')
 if os.path.exists(pu):
     u.append(f'  <url><loc>https://quimicasarji.com/productos/</loc><lastmod>{last}</lastmod><priority>0.8</priority></url>')
     if os.path.exists(os.path.join(ROOT,'site','fichas-tecnicas','index.html')): u.append(f'  <url><loc>https://quimicasarji.com/fichas-tecnicas/</loc><lastmod>{last}</lastmod><priority>0.7</priority></url>')
-    u+=[f'  <url><loc>{x}</loc>'+(f'<lastmod>{last}</lastmod><priority>0.9</priority>' if x.endswith('/productos/acido-muriatico/') else '<priority>0.7</priority>')+'</url>' for x in json.load(open(pu))]
+    _im=json.load(open(os.path.join(ROOT,'productos','images.json'),encoding='utf-8')) if os.path.exists(os.path.join(ROOT,'productos','images.json')) else {}
+    _it=lambda x:''.join(f'<image:image><image:loc>{html.escape(i)}</image:loc></image:image>' for i,_ in _im.get(x,[])[:20])
+    u+=[f'  <url><loc>{x}</loc>'+(f'<lastmod>{last}</lastmod><priority>0.9</priority>' if x.endswith('/productos/acido-muriatico/') else '<priority>0.7</priority>')+_it(x)+'</url>' for x in json.load(open(pu))]
     pdfdir=os.path.join(ROOT,'site','fichas-tecnicas','pdf')
     if os.path.isdir(pdfdir):
         import datetime
@@ -53,5 +55,5 @@ if os.path.exists(pu):
             if f.lower().endswith('.pdf'):
                 d=datetime.date.fromtimestamp(os.path.getmtime(os.path.join(pdfdir,f))).isoformat()
                 u.append(f'  <url><loc>https://quimicasarji.com/fichas-tecnicas/pdf/{f}</loc><lastmod>{d}</lastmod><priority>0.5</priority></url>')
-open(os.path.join(ROOT,'sitemap.xml'),'w',encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+'\n'.join(u)+'\n</urlset>\n')
+open(os.path.join(ROOT,'sitemap.xml'),'w',encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n'+'\n'.join(u)+'\n</urlset>\n')
 print('ok',len(POSTS))
