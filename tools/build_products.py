@@ -26,6 +26,7 @@ def ficha(pid):
     return json.load(open(f, encoding='utf-8')) if os.path.exists(f) else None
 
 
+LICENSE = 'https://quimicasarji.com/productos/uso-de-imagenes/'
 IMGMAP = {}  # (product id, k) -> nombre descriptivo del archivo (sin .jpg)
 IMAGES = {}  # url de página -> [(url de imagen, título)] para el mapa de imágenes
 # Qué muestra cada foto adicional (revisado a ojo); las demás quedan como "foto N".
@@ -61,7 +62,7 @@ def img_ld(p, url):
         u = 'https://quimicasarji.com' + isrc(p, k)
         imgs.append({"@type": "ImageObject", "contentUrl": u, "url": u, "name": ialt(p, k), "caption": ialt(p, k),
                      "creditText": "León Rojo · Químicas Arji", "creator": {"@type": "Organization", "name": "Químicas Arji WGAC S.A."},
-                     "copyrightNotice": "Químicas Arji WGAC S.A."})
+                     "copyrightNotice": "Químicas Arji WGAC S.A.", "license": LICENSE, "acquireLicensePage": LICENSE})
         IMAGES.setdefault(url, []).append((u, ialt(p, k)))
     return imgs
 
@@ -199,7 +200,7 @@ def hub(h, posts):
     for i in h['ids']:
         IMAGES.setdefault(url, []).append(('https://quimicasarji.com' + isrc(BYID[i]), ialt(BYID[i])))
     ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": h['title'], "description": h['desc'], "url": url, "inLanguage": "es-CR",
-           "primaryImageOfPage": {"@type": "ImageObject", "contentUrl": "https://quimicasarji.com" + hsrc, "url": "https://quimicasarji.com" + hsrc, "name": halt, "caption": halt, "creditText": "León Rojo · Químicas Arji", "creator": {"@type": "Organization", "name": "Químicas Arji WGAC S.A."}, "copyrightNotice": "Químicas Arji WGAC S.A."},
+           "primaryImageOfPage": {"@type": "ImageObject", "contentUrl": "https://quimicasarji.com" + hsrc, "url": "https://quimicasarji.com" + hsrc, "name": halt, "caption": halt, "creditText": "León Rojo · Químicas Arji", "creator": {"@type": "Organization", "name": "Químicas Arji WGAC S.A."}, "copyrightNotice": "Químicas Arji WGAC S.A.", "license": LICENSE, "acquireLicensePage": LICENSE},
            "publisher": {"@type": "Organization", "name": "Químicas Arji WGAC S.A.", "url": "https://quimicasarji.com/"}},
           {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
               {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://quimicasarji.com/"},
@@ -301,6 +302,17 @@ if __name__ == '__main__':
         for sub in ('', 't'):
             a_ = os.path.join(OUT, 'img', sub, src + '.jpg')
             if os.path.exists(a_): shutil.copy(a_, os.path.join(OUT, 'img', sub, n + '.jpg'))
+    lic_url = LICENSE
+    os.makedirs(os.path.join(OUT, 'uso-de-imagenes'), exist_ok=True)
+    lic_body = f'''<main class="wrap" style="max-width:760px;padding:40px 16px">
+<nav class="crumbs"><a href="/">Inicio</a> › <a href="/productos/">Productos</a> › Uso de imágenes</nav>
+<h1>Uso de las fotos de productos León Rojo</h1>
+<p>Las fotos de productos publicadas en quimicasarji.com son propiedad de <b>Químicas Arji WGAC S.A.</b>, fabricante de los productos León Rojo en Costa Rica. Todos los derechos reservados.</p>
+<p>Si sos ferretería, distribuidor o medio de comunicación y querés usar alguna de estas fotos, escribinos y te respondemos con gusto:</p>
+<ul><li>WhatsApp: <a href="{wa('Hola Químicas Arji, quiero usar fotos de productos León Rojo.')}" target="_blank" rel="noopener">8994-4763</a></li><li>Teléfono: 2250-2064</li><li>Correo: qarjisa@hotmail.com</li></ul>
+<p><a href="/productos/">Ver todos los productos León Rojo</a></p>
+</main>'''
+    open(os.path.join(OUT, 'uso-de-imagenes', 'index.html'), 'w', encoding='utf-8').write(head('Uso de las fotos de productos León Rojo | Químicas Arji', 'Las fotos de productos León Rojo son propiedad de Químicas Arji WGAC S.A. Si querés usar alguna para vender o publicar nuestros productos, escribinos por WhatsApp.', lic_url, 'https://quimicasarji.com/productos/img/acido-muriatico-29-leon-rojo.jpg', '') + lic_body + FOOT)
     json.dump({u: v for u, v in IMAGES.items() if u != '_'}, open(os.path.join(OUT, 'images.json'), 'w', encoding='utf-8'), ensure_ascii=False)
     json.dump([f'https://quimicasarji.com/productos/{s}/' for s in hubs + list(built.values())], open(os.path.join(OUT, 'urls.json'), 'w'))
     print('ok', len(built), list(built.values()))
