@@ -27,6 +27,19 @@ def ficha(pid):
 
 
 LICENSE = 'https://quimicasarji.com/productos/uso-de-imagenes/'
+# Productos controlados por el ICD (requieren licencia para comprarlos y venderlos) y su alternativa sin licencia
+CTRL = {'muriatico36': ('el Ácido Muriático 29% NC', 'acido-muriatico-29'),
+        'superdesatorador': ('el Desatorador de Cañerías NC', 'desatorador-de-canerias-nc'),
+        'potasa': ('el Desatorador de Cañerías NC', 'desatorador-de-canerias-nc')}
+
+
+def ctrl_note(p):
+    if p['id'] not in CTRL: return ''
+    alt, sl = CTRL[p['id']]
+    return (f'<div class="warn"><b>⚠ Producto controlado por el ICD:</b> para comprarlo y venderlo se necesita licencia del '
+            f'Instituto Costarricense sobre Drogas. Si no tenés licencia, usá <a href="/productos/{sl}/">{e(alt)}</a>, que no la requiere.</div>')
+
+
 IMGMAP = {}  # (product id, k) -> nombre descriptivo del archivo (sin .jpg)
 IMAGES = {}  # url de página -> [(url de imagen, título)] para el mapa de imágenes
 # Qué muestra cada foto adicional (revisado a ojo); las demás quedan como "foto N".
@@ -134,6 +147,8 @@ def page(p, f, posts):
     _c = [f"{p['n']} León Rojo | {p['s']} · Costa Rica", f"{p['n']} León Rojo | {p['s']}", f"{p['n']} León Rojo en Costa Rica | Usos y presentaciones", f"{p['n']} León Rojo | Usos y presentaciones"]
     title = next((t for t in _c if len(t) <= 65), _c[-1])
     faq = list((f or {}).get('faq', []))
+    if p['id'] in CTRL and not any('licencia' in q.lower() for q, a in faq):
+        faq.insert(0, ['¿Se necesita licencia para comprarlo?', f"Sí. Es un precursor controlado: para comprarlo y venderlo se necesita licencia del Instituto Costarricense sobre Drogas (ICD). Si no tenés licencia, usá {CTRL[p['id']][0]}, que no la requiere."])
     if not any('Dónde' in q for q, a in faq):
         faq.append(['¿Dónde lo compro?', 'En ferreterías de todo el país que venden la marca León Rojo, o pedilo directo por WhatsApp al 8994-4763.'])
     # Sin "Product": Google exige precio (offers) o reseñas para ese tipo, y no publicamos precios ni inventamos reseñas.
@@ -159,7 +174,7 @@ def page(p, f, posts):
 <div class="ctas"><a class="btn btn-wa" href="{wa(msg)}" target="_blank" rel="noopener">Pedir por WhatsApp</a>{'' if p['c'] == 'envases' else (''.join(f'<a class="btn btn-red" href="/fichas-tecnicas/pdf/{x["file"]}" target="_blank" rel="noopener">⬇ Ficha técnica{(" " + e(x["label"].replace("Cloro ", ""))) if x["label"] else ""} (PDF)</a>' for x in FTBY.get(p['id'], [])) or f'<a class="btn btn-red" href="{wa('Hola Químicas Arji, necesito la ficha técnica de ' + p['n'] + '.')}" target="_blank" rel="noopener">Ficha técnica</a>')}</div>
 <p class="note">🏪 También lo encontrás en ferreterías de todo el país: pedí la marca León Rojo en tu ferretería de confianza.</p></div></section>
 <article style="padding-top:10px">
-<h2>¿Para qué sirve?</h2><p>{e(f['intro'] if f else p['d'])}</p>
+<h2>¿Para qué sirve?</h2><p>{e(f['intro'] if f else p['d'])}</p>{ctrl_note(p)}
 <div class="uses">{''.join(f'<div class="use">{e(u)}</div>' for u in p.get('u', []))}</div>
 {('<h2>' + ('Cómo pedirlos' if p['c'] == 'envases' else 'Cómo se usa') + '</h2><ol class="steps">' + ''.join(f'<li>{e(x)}</li>' for x in f['pasos']) + '</ol>' + ('<p class="note">Seguí siempre las indicaciones y cantidades de la etiqueta.</p>' if p['c'] != 'envases' else '')) if f and f.get('pasos') else ''}
 {f'<div class="warn"><b>⚠ Seguridad:</b> {e(f["seguridad"])}</div>' if f and f.get('seguridad') else ('<div class="warn"><b>⚠ Seguridad:</b> Leé la etiqueta antes de usar. Usá guantes y lentes de protección y no lo mezclés con otros productos.</div>' if p.get('haz') else '')}
