@@ -178,7 +178,7 @@ def page(p, f, posts):
 <div class="uses">{''.join(f'<div class="use">{e(u)}</div>' for u in p.get('u', []))}</div>
 {('<h2>' + ('Cómo pedirlos' if p['c'] == 'envases' else 'Cómo se usa') + '</h2><ol class="steps">' + ''.join(f'<li>{e(x)}</li>' for x in f['pasos']) + '</ol>' + ('<p class="note">Seguí siempre las indicaciones y cantidades de la etiqueta.</p>' if p['c'] != 'envases' else '')) if f and f.get('pasos') else ''}
 {f'<div class="warn"><b>⚠ Seguridad:</b> {e(f["seguridad"])}</div>' if f and f.get('seguridad') else ('<div class="warn"><b>⚠ Seguridad:</b> Leé la etiqueta antes de usar. Usá guantes y lentes de protección y no lo mezclés con otros productos.</div>' if p.get('haz') else '')}
-{''.join(f'<a class="guide" href="/productos/{h["slug"]}/"><small>Guía completa · cuál elegir, usos y seguridad</small><b>{e(h["h1"])}</b></a>' for h in HUBS if p['id'] in h['ids'])}
+{''.join(f'<a class="guide" href="{hurl(h)}"><small>Guía completa · cuál elegir, usos y seguridad</small><b>{e(h["h1"])}</b></a>' for h in HUBS if p['id'] in h['ids'])}
 {''.join(f'<a class="guide" href="/blog/{g["slug"]}/"><small>Guía paso a paso</small><b>{e(g["title"])}</b></a>' for g in posts if f and f.get('blog') == g['slug'])}
 {('<h2>Preguntas frecuentes</h2>' + ''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in faq)) if faq else ''}
 <h2>También te puede servir</h2><div class="rel">{''.join(f'<a href="/productos/{slug(r["n"])}/"><img src="{isrc(r, 0, True)}" alt="{e(r["n"])} León Rojo" loading="lazy"><span>{e(r["n"])}</span></a>' for r in [x for x in P if x['c'] == p['c'] and x['id'] != p['id'] and not x.get('pro')][:4])}</div>
@@ -208,7 +208,22 @@ def auto_body(h, prods):
     return b
 
 
+def hurl(h):
+    """URL pública de una guía: si se unió a otra página, apunta al destino."""
+    return h.get('redirect') or f"/productos/{h['slug']}/"
+
+
+def redirect_page(h):
+    """Guía unida a otra página: 301 por .htaccess y, de respaldo, canonical + meta refresh."""
+    dst = 'https://quimicasarji.com' + h['redirect']
+    d = os.path.join(OUT, h['slug']); os.makedirs(d, exist_ok=True)
+    open(os.path.join(d, '.htaccess'), 'w').write(f'RedirectMatch 301 ^/productos/{h["slug"]}/?(index\\.html)?$ {dst}\n')
+    open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(f'<!doctype html><html lang="es"><head><meta charset="utf-8"><title>{e(h.get("label", h["h1"]))} | León Rojo</title><link rel="canonical" href="{dst}"><meta http-equiv="refresh" content="0;url={dst}"></head><body><p>Esta guía ahora está en <a href="{dst}">{dst}</a>.</p><script>location.replace({json.dumps(dst)})</script></body></html>')
+    return None
+
+
 def hub(h, posts):
+    if h.get('redirect'): return redirect_page(h)
     url = f"https://quimicasarji.com/productos/{h['slug']}/"
     _m = next(((BYID[i], BYID[i]['img'].index(h['img'])) for i in h['ids'] if h['img'] in BYID[i]['img']), None)
     hsrc, halt = (isrc(*_m), ialt(*_m)) if _m else (f"/productos/img/{h['img']}.jpg", h.get('label', h['h1']) + ' León Rojo')
@@ -267,7 +282,7 @@ def index(built):
         if not items: continue
         cards += f'<h2>{e(name)}</h2><div class="rel">' + ''.join(f'<a href="/productos/{slug(p["n"])}/"><img src="{isrc(p, 0, True)}" alt="{e(p["n"])} León Rojo" loading="lazy"><span>{e(p["n"])}</span></a>' for p in items) + '</div>'
     h = head('Productos León Rojo · Catálogo completo | Químicas Arji', 'Catálogo de productos químicos León Rojo hechos en Costa Rica: limpieza, taller y autos, construcción, madera y piscinas. Presentaciones, usos y seguridad.', 'https://quimicasarji.com/productos/', 'b1_14', '')
-    open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(h + f'<main class="wrap prod"><nav class="crumbs"><a href="/">Inicio</a> › Productos</nav><section style="padding-top:16px"><span class="eyebrow">Catálogo León Rojo</span><h1>Nuestros productos</h1><img src="/productos/img/linea_completa_1.jpg" alt="Línea completa de productos León Rojo" style="width:100%;border-radius:12px;margin:8px 0 18px;background:#F2F2F0"><p class="lead">Fabricados en Costa Rica desde hace 29 años. Tocá un producto para ver presentaciones, usos y precauciones.</p></section><p><a class="btn btn-red" href="/fichas-tecnicas/">⬇ Fichas técnicas en PDF</a></p><h2>Guías por tema</h2><div class="uses">{''.join(f'<a class="use" style="text-decoration:none" href="/productos/{h["slug"]}/">{e(h.get("label", h["h1"]))}</a>' for h in HUBS)}</div>{cards}<p style="padding-bottom:40px"></p></main>' + FOOT)
+    open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(h + f'<main class="wrap prod"><nav class="crumbs"><a href="/">Inicio</a> › Productos</nav><section style="padding-top:16px"><span class="eyebrow">Catálogo León Rojo</span><h1>Nuestros productos</h1><img src="/productos/img/linea_completa_1.jpg" alt="Línea completa de productos León Rojo" style="width:100%;border-radius:12px;margin:8px 0 18px;background:#F2F2F0"><p class="lead">Fabricados en Costa Rica desde hace 29 años. Tocá un producto para ver presentaciones, usos y precauciones.</p></section><p><a class="btn btn-red" href="/fichas-tecnicas/">⬇ Fichas técnicas en PDF</a></p><h2>Guías por tema</h2><div class="uses">{''.join(f'<a class="use" style="text-decoration:none" href="{hurl(h)}">{e(h.get("label", h["h1"]))}</a>' for h in HUBS)}</div>{cards}<p style="padding-bottom:40px"></p></main>' + FOOT)
 
 
 def fichas_index(built):
@@ -308,7 +323,7 @@ if __name__ == '__main__':
     for pid in ids:
         built[pid] = page(BYID[pid], ficha(pid), posts)
     index(built)
-    hubs = [hub(h, posts) for h in HUBS]
+    hubs = [x for x in (hub(h, posts) for h in HUBS) if x]
     for p in P:  # asegurar nombres para todas las fotos de productos publicados
         if p['id'] in built:
             for k in range(len(p['img'])): iname(p, k)
