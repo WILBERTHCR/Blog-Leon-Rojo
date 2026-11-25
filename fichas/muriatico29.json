@@ -22,5 +22,20 @@
    "Viene en 1/2 litro, litro y galón."
   ]
  ],
- "blog": "acido-muriatico-para-que-sirve"
+ "blog": "acido-muriatico-para-que-sirve",
+ "precios": [
+  [
+   "1/2 litro",
+   700
+  ],
+  [
+   "Litro",
+   1190
+  ],
+  [
+   "Galón",
+   2600
+  ]
+ ],
+ "precios_hasta": "2026-12-31"
 }

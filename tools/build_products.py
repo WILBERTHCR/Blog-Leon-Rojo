@@ -159,6 +159,15 @@ def page(p, f, posts):
               {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://quimicasarji.com/"},
               {"@type": "ListItem", "position": 2, "name": "Productos", "item": "https://quimicasarji.com/productos/"},
               {"@type": "ListItem", "position": 3, "name": p['n'], "item": url}]}]
+    precios = (f or {}).get('precios') or []
+    if precios:  # precio sugerido al público (IVA incluido), dado por la empresa
+        ld.append({"@context": "https://schema.org", "@type": "Product", "name": p['n'] + ' León Rojo', "description": desc, "url": url,
+                   "image": [x["contentUrl"] for x in img_ld(p, '_')], "brand": {"@type": "Brand", "name": "León Rojo"},
+                   "manufacturer": {"@type": "Organization", "name": "Químicas Arji WGAC S.A."},
+                   "offers": {"@type": "AggregateOffer", "priceCurrency": "CRC", "lowPrice": min(v for _, v in precios), "highPrice": max(v for _, v in precios), "offerCount": len(precios),
+                              "offers": [{"@type": "Offer", "name": f"{p['n']} León Rojo · {n}", "price": v, "priceCurrency": "CRC", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": url,
+                                          **({"priceValidUntil": f['precios_hasta']} if f.get('precios_hasta') else {}),
+                                          "seller": {"@type": "Organization", "name": "Químicas Arji WGAC S.A."}} for n, v in precios]}})
     if faq:
         ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]})
@@ -170,7 +179,7 @@ def page(p, f, posts):
     body = f'''<main class="wrap prod"><nav class="crumbs" aria-label="Ruta"><a href="/">Inicio</a> › <a href="/productos/">Productos</a> › {e(cat)}</nav>
 <section class="phero"><div class="gal"><div class="main"><img src="{isrc(p)}" alt="{e(ialt(p))}" width="800" height="1000"></div><div class="thumbs">{thumbs}</div></div>
 <div class="pinfo"><span class="eyebrow">León Rojo · {e(cat)}</span><h1>{e(p['n'])} León Rojo</h1><p class="sub">{e(p['s'])}</p>
-<p class="lbl">Presentaciones</p><div class="tags">{pres}</div>{f'<p class="lbl">Aromas / variantes</p><div class="tags">{vars_}</div>' if vars_ else ''}
+<p class="lbl">Presentaciones</p><div class="tags">{pres}</div>{('<p class="lbl">Precio sugerido al público</p><div class="tags">' + ''.join(f'<span class="tag">{e(n)}: <b>₡{v:,}</b></span>'.replace(',', '.') for n, v in precios) + '</div><p class="note" style="margin-top:4px">IVA incluido · <b>Disponible</b> en ferreterías de todo el país y en planta. El precio puede variar en cada ferretería.</p>') if precios else ''}{f'<p class="lbl">Aromas / variantes</p><div class="tags">{vars_}</div>' if vars_ else ''}
 <div class="ctas"><a class="btn btn-wa" href="{wa(msg)}" target="_blank" rel="noopener">Pedir por WhatsApp</a>{'' if p['c'] == 'envases' else (''.join(f'<a class="btn btn-red" href="/fichas-tecnicas/pdf/{x["file"]}" target="_blank" rel="noopener">⬇ Ficha técnica{(" " + e(x["label"].replace("Cloro ", ""))) if x["label"] else ""} (PDF)</a>' for x in FTBY.get(p['id'], [])) or f'<a class="btn btn-red" href="{wa('Hola Químicas Arji, necesito la ficha técnica de ' + p['n'] + '.')}" target="_blank" rel="noopener">Ficha técnica</a>')}</div>
 <p class="note">🏪 También lo encontrás en ferreterías de todo el país: pedí la marca León Rojo en tu ferretería de confianza.</p></div></section>
 <article style="padding-top:10px">
