@@ -41,3 +41,16 @@ RewriteRule ^producto/.*$ /productos/ [R=301,L]
   ExpiresByType application/javascript "access plus 1 day"
   ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
+
+# Encabezados de seguridad (securityheaders.com). Solo para quimicasarji.com, no para las apps de los subdominios.
+<IfModule mod_setenvif.c>
+  SetEnvIfNoCase Host "^(www\.)?quimicasarji\.com(:\d+)?$" QA_MAIN
+</IfModule>
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000" env=QA_MAIN
+  Header always set X-Content-Type-Options "nosniff" env=QA_MAIN
+  Header always set X-Frame-Options "SAMEORIGIN" env=QA_MAIN
+  Header always set Referrer-Policy "strict-origin-when-cross-origin" env=QA_MAIN
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()" env=QA_MAIN
+  Header always set Content-Security-Policy "upgrade-insecure-requests; frame-ancestors 'self'; object-src 'none'; base-uri 'self'" env=QA_MAIN
+</IfModule>
