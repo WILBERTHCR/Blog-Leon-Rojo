@@ -136,6 +136,89 @@ FOOT = '''<footer><div class="wrap">© 2026 Químicas Arji WGAC S.A. · Fabrican
 <script>document.querySelectorAll('.thumbs button').forEach(b=>b.addEventListener('click',()=>{document.querySelector('.gal .main img').src=b.dataset.src;document.querySelectorAll('.thumbs button').forEach(x=>x.setAttribute('aria-current',x===b))}))</script></body></html>'''
 
 
+REVIEWS_BLOCK = r'''<section class="resenas" id="resenas" data-pid="{ID}">
+<style>
+.resenas{margin:34px 0 10px}.resenas h2{margin-bottom:6px}
+.res-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:6px 0 14px}
+.stars{--n:0;display:inline-block;font-size:22px;line-height:1;position:relative;color:#d9d9d9;letter-spacing:2px}
+.stars::before{content:"★★★★★"}
+.stars>i{position:absolute;left:0;top:0;width:calc(var(--n)/5*100%);overflow:hidden;color:#f5a623;white-space:nowrap}
+.stars>i::before{content:"★★★★★"}
+.res-avg{font-size:1.4em;font-weight:700}.res-count{opacity:.7}
+.res-list{display:grid;gap:12px;margin:10px 0 22px}
+.res-item{border:1px solid #eee;border-radius:12px;padding:12px 14px;background:#fff}
+.res-item .stars{font-size:16px}.res-head{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+.res-name{font-weight:600}.res-date{font-size:.82em;opacity:.6}.res-text{margin-top:6px}
+.res-form{border:1px solid #eee;border-radius:14px;padding:16px;background:#FAFAF8;max-width:560px}
+.res-form h3{margin:0 0 10px}
+.res-pick{display:flex;gap:4px;margin-bottom:10px}
+.res-pick button{font-size:30px;line-height:1;background:none;border:none;cursor:pointer;color:#d9d9d9;padding:0 2px}
+.res-pick button.on{color:#f5a623}
+.res-form input[type=text]:not(.res-hp),.res-form input[name=author],.res-form textarea{width:100%;box-sizing:border-box;border:1px solid #ccc;border-radius:9px;padding:10px;font:inherit;margin-bottom:10px}
+.res-form textarea{min-height:84px;resize:vertical}
+.res-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.res-msg{margin:8px 0 0;font-weight:600;min-height:1em}.res-msg.ok{color:#1a8f3c}.res-msg.err{color:#c0392b}
+</style>
+<h2>Opiniones de clientes</h2>
+<div class="res-top"><span class="stars" id="resStars"><i></i></span><span class="res-avg" id="resAvg">—</span><span class="res-count" id="resCount">Sé el primero en opinar</span></div>
+<div class="res-list" id="resList"></div>
+<form class="res-form" id="resForm" autocomplete="off">
+<h3>Calificá este producto</h3>
+<div class="res-pick" id="resPick" role="radiogroup" aria-label="Estrellas">
+<button type="button" data-v="1" aria-label="1 estrella">★</button><button type="button" data-v="2" aria-label="2 estrellas">★</button><button type="button" data-v="3" aria-label="3 estrellas">★</button><button type="button" data-v="4" aria-label="4 estrellas">★</button><button type="button" data-v="5" aria-label="5 estrellas">★</button>
+</div>
+<input type="hidden" name="rating" id="resRating" value="0">
+<input name="author" maxlength="40" placeholder="Tu nombre" required>
+<textarea name="text" maxlength="600" placeholder="Contanos qué te pareció el producto" required></textarea>
+<input type="text" name="website" class="res-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<button type="submit" class="btn btn-red">Enviar mi opinión</button>
+<p class="res-msg" id="resMsg" aria-live="polite"></p>
+</form>
+<script>
+(function(){
+var S=document.getElementById('resenas'),PID=S.dataset.pid,API='/productos/resenas.php';
+function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML;}
+function starHTML(n){return '<span class="stars" style="--n:'+n+'"><i></i></span>';}
+function render(d){
+ var n=d.count||0,a=d.average||0;
+ document.getElementById('resStars').style.setProperty('--n',a);
+ document.getElementById('resAvg').textContent=n?a.toFixed(1):'—';
+ document.getElementById('resCount').textContent=n?('· '+n+(n==1?' opinión':' opiniones')):'Sé el primero en opinar';
+ var L=document.getElementById('resList');L.innerHTML='';
+ (d.reviews||[]).forEach(function(r){
+  var el=document.createElement('div');el.className='res-item';
+  el.innerHTML='<div class="res-head"><span class="res-name">'+esc(r.author)+'</span><span class="res-date">'+esc(r.date||'')+'</span></div>'+starHTML(r.rating)+'<div class="res-text">'+esc(r.text)+'</div>';
+  L.appendChild(el);
+ });
+ if(n){var ld={"@context":"https://schema.org","@type":"AggregateRating","ratingValue":a,"reviewCount":n};
+  document.querySelectorAll('script[type="application/ld+json"]').forEach(function(sc){
+   try{var j=JSON.parse(sc.textContent);if(j && j["@type"]==="Product"){j.aggregateRating={"@type":"AggregateRating","ratingValue":a,"reviewCount":n,"bestRating":5,"worstRating":1};
+    j.review=(d.reviews||[]).slice(0,10).map(function(r){return {"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":r.rating,"bestRating":5,"worstRating":1},"author":{"@type":"Person","name":r.author},"datePublished":r.date,"reviewBody":r.text};});
+    sc.textContent=JSON.stringify(j);}}catch(e){}
+  });
+ }
+}
+fetch(API+'?id='+encodeURIComponent(PID)).then(function(r){return r.json();}).then(render).catch(function(){});
+var pick=document.getElementById('resPick'),rating=document.getElementById('resRating');
+pick.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var v=+b.dataset.v;rating.value=v;[].forEach.call(pick.children,function(x,i){x.classList.toggle('on',i<v);});});
+document.getElementById('resForm').addEventListener('submit',function(e){
+ e.preventDefault();var m=document.getElementById('resMsg');m.className='res-msg';
+ if(!(+rating.value)){m.textContent='Elegí cuántas estrellas.';m.className='res-msg err';return;}
+ var fd=new FormData(e.target);fd.append('id',PID);
+ var btn=e.target.querySelector('button[type=submit]');btn.disabled=true;
+ fetch(API,{method:'POST',body:fd}).then(function(r){return r.json().then(function(j){return {s:r.status,j:j};});}).then(function(o){
+  btn.disabled=false;
+  if(o.j&&o.j.ok){e.target.reset();[].forEach.call(pick.children,function(x){x.classList.remove('on');});rating.value=0;m.textContent='¡Gracias por tu opinión!';m.className='res-msg ok';render(o.j);}
+  else if(o.s===429){m.textContent='Ya dejaste una opinión de este producto. ¡Gracias!';m.className='res-msg err';}
+  else{m.textContent='Revisá tu nombre y comentario e intentá de nuevo.';m.className='res-msg err';}
+ }).catch(function(){btn.disabled=false;m.textContent='No se pudo enviar. Probá más tarde.';m.className='res-msg err';});
+});
+})();
+</script>
+</section>
+'''
+
+
 def page(p, f, posts):
     s = slug(p['n']); url = f'https://quimicasarji.com/productos/{s}/'
     cat = CATS.get(p['c'], '')
@@ -176,6 +259,7 @@ def page(p, f, posts):
     pres = ''.join(f'<span class="tag">{e(x)}</span>' for x in p.get('pres', []))
     vars_ = ''.join(f'<span class="tag">{e(x)}</span>' for x in p.get('vars', []))
     msg = f"Hola Químicas Arji, quiero pedir {p['n']} León Rojo."
+    reviews_html = REVIEWS_BLOCK.replace('{ID}', p['id']) if (f and f.get('resenas')) else ''
     body = f'''<main class="wrap prod"><nav class="crumbs" aria-label="Ruta"><a href="/">Inicio</a> › <a href="/productos/">Productos</a> › {e(cat)}</nav>
 <section class="phero"><div class="gal"><div class="main"><img src="{isrc(p)}" alt="{e(ialt(p))}" width="800" height="1000"></div><div class="thumbs">{thumbs}</div></div>
 <div class="pinfo"><span class="eyebrow">León Rojo · {e(cat)}</span><h1>{e(p['n'])} León Rojo</h1><p class="sub">{e(p['s'])}</p>
@@ -190,7 +274,7 @@ def page(p, f, posts):
 {''.join(f'<a class="guide" href="{hurl(h)}"><small>Guía completa · cuál elegir, usos y seguridad</small><b>{e(h["h1"])}</b></a>' for h in HUBS if p['id'] in h['ids'])}
 {''.join(f'<a class="guide" href="/blog/{g["slug"]}/"><small>Guía paso a paso</small><b>{e(g["title"])}</b></a>' for g in posts if f and f.get('blog') == g['slug'])}
 {('<h2>Preguntas frecuentes</h2>' + ''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in faq)) if faq else ''}
-<h2>También te puede servir</h2><div class="rel">{''.join(f'<a href="/productos/{slug(r["n"])}/"><img src="{isrc(r, 0, True)}" alt="{e(r["n"])} León Rojo" loading="lazy"><span>{e(r["n"])}</span></a>' for r in [x for x in P if x['c'] == p['c'] and x['id'] != p['id'] and not x.get('pro')][:4])}</div>
+{reviews_html}<h2>También te puede servir</h2><div class="rel">{''.join(f'<a href="/productos/{slug(r["n"])}/"><img src="{isrc(r, 0, True)}" alt="{e(r["n"])} León Rojo" loading="lazy"><span>{e(r["n"])}</span></a>' for r in [x for x in P if x['c'] == p['c'] and x['id'] != p['id'] and not x.get('pro')][:4])}</div>
 </article></main>'''
     os.makedirs(os.path.join(OUT, s), exist_ok=True)
     open(os.path.join(OUT, s, 'index.html'), 'w', encoding='utf-8').write(head(title, desc, url, 'https://quimicasarji.com' + isrc(p), ldh) + body + FOOT)
@@ -352,6 +436,8 @@ if __name__ == '__main__':
 <p><a href="/productos/">Ver todos los productos León Rojo</a></p>
 </main>'''
     open(os.path.join(OUT, 'uso-de-imagenes', 'index.html'), 'w', encoding='utf-8').write(head('Uso de las fotos de productos León Rojo | Químicas Arji', 'Las fotos de productos León Rojo son propiedad de Químicas Arji WGAC S.A. Si querés usar alguna para vender o publicar nuestros productos, escribinos por WhatsApp.', lic_url, 'https://quimicasarji.com/productos/img/acido-muriatico-29-leon-rojo.jpg', '') + lic_body + FOOT)
+    _php = open(os.path.join(ROOT, 'productos_resenas_php.tmpl'), encoding='utf-8').read()
+    open(os.path.join(OUT, 'resenas.php'), 'w', encoding='utf-8').write(_php)
     json.dump({u: v for u, v in IMAGES.items() if u != '_'}, open(os.path.join(OUT, 'images.json'), 'w', encoding='utf-8'), ensure_ascii=False)
     json.dump([f'https://quimicasarji.com/productos/{s}/' for s in hubs + list(built.values())], open(os.path.join(OUT, 'urls.json'), 'w'))
     print('ok', len(built), list(built.values()))

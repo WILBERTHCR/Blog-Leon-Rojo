@@ -52,6 +52,86 @@ main.prod{max-width:67.5rem}
 <a class="guide" href="/blog/acido-muriatico-para-que-sirve/"><small>Guía completa · cuál elegir, usos y seguridad</small><b>Ácido Muriático León Rojo: guía completa del 29% y el Super 36%</b></a>
 <a class="guide" href="/blog/acido-muriatico-para-que-sirve/"><small>Guía paso a paso</small><b>Ácido muriático: para qué sirve y cómo usarlo paso a paso</b></a>
 <h2>Preguntas frecuentes</h2><details><summary>¿Cuál es la diferencia con el Super Ácido Muriático 36%?</summary><p>El 36% es la versión de máxima concentración para manchas y sarro más difíciles. El 29% es para los trabajos de limpieza habituales.</p></details><details><summary>¿Sirve para quitar restos de cemento?</summary><p>Sí, es uno de sus usos principales en pisos, ladrillo y piedra.</p></details><details><summary>¿Qué presentaciones hay?</summary><p>Viene en 1/2 litro, litro y galón.</p></details><details><summary>¿Dónde lo compro?</summary><p>En ferreterías de todo el país que venden la marca León Rojo, o pedilo directo por WhatsApp al 8994-4763.</p></details>
+<section class="resenas" id="resenas" data-pid="muriatico29">
+<style>
+.resenas{margin:34px 0 10px}.resenas h2{margin-bottom:6px}
+.res-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:6px 0 14px}
+.stars{--n:0;display:inline-block;font-size:22px;line-height:1;position:relative;color:#d9d9d9;letter-spacing:2px}
+.stars::before{content:"★★★★★"}
+.stars>i{position:absolute;left:0;top:0;width:calc(var(--n)/5*100%);overflow:hidden;color:#f5a623;white-space:nowrap}
+.stars>i::before{content:"★★★★★"}
+.res-avg{font-size:1.4em;font-weight:700}.res-count{opacity:.7}
+.res-list{display:grid;gap:12px;margin:10px 0 22px}
+.res-item{border:1px solid #eee;border-radius:12px;padding:12px 14px;background:#fff}
+.res-item .stars{font-size:16px}.res-head{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+.res-name{font-weight:600}.res-date{font-size:.82em;opacity:.6}.res-text{margin-top:6px}
+.res-form{border:1px solid #eee;border-radius:14px;padding:16px;background:#FAFAF8;max-width:560px}
+.res-form h3{margin:0 0 10px}
+.res-pick{display:flex;gap:4px;margin-bottom:10px}
+.res-pick button{font-size:30px;line-height:1;background:none;border:none;cursor:pointer;color:#d9d9d9;padding:0 2px}
+.res-pick button.on{color:#f5a623}
+.res-form input[type=text]:not(.res-hp),.res-form input[name=author],.res-form textarea{width:100%;box-sizing:border-box;border:1px solid #ccc;border-radius:9px;padding:10px;font:inherit;margin-bottom:10px}
+.res-form textarea{min-height:84px;resize:vertical}
+.res-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.res-msg{margin:8px 0 0;font-weight:600;min-height:1em}.res-msg.ok{color:#1a8f3c}.res-msg.err{color:#c0392b}
+</style>
+<h2>Opiniones de clientes</h2>
+<div class="res-top"><span class="stars" id="resStars"><i></i></span><span class="res-avg" id="resAvg">—</span><span class="res-count" id="resCount">Sé el primero en opinar</span></div>
+<div class="res-list" id="resList"></div>
+<form class="res-form" id="resForm" autocomplete="off">
+<h3>Calificá este producto</h3>
+<div class="res-pick" id="resPick" role="radiogroup" aria-label="Estrellas">
+<button type="button" data-v="1" aria-label="1 estrella">★</button><button type="button" data-v="2" aria-label="2 estrellas">★</button><button type="button" data-v="3" aria-label="3 estrellas">★</button><button type="button" data-v="4" aria-label="4 estrellas">★</button><button type="button" data-v="5" aria-label="5 estrellas">★</button>
+</div>
+<input type="hidden" name="rating" id="resRating" value="0">
+<input name="author" maxlength="40" placeholder="Tu nombre" required>
+<textarea name="text" maxlength="600" placeholder="Contanos qué te pareció el producto" required></textarea>
+<input type="text" name="website" class="res-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<button type="submit" class="btn btn-red">Enviar mi opinión</button>
+<p class="res-msg" id="resMsg" aria-live="polite"></p>
+</form>
+<script>
+(function(){
+var S=document.getElementById('resenas'),PID=S.dataset.pid,API='/productos/resenas.php';
+function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML;}
+function starHTML(n){return '<span class="stars" style="--n:'+n+'"><i></i></span>';}
+function render(d){
+ var n=d.count||0,a=d.average||0;
+ document.getElementById('resStars').style.setProperty('--n',a);
+ document.getElementById('resAvg').textContent=n?a.toFixed(1):'—';
+ document.getElementById('resCount').textContent=n?('· '+n+(n==1?' opinión':' opiniones')):'Sé el primero en opinar';
+ var L=document.getElementById('resList');L.innerHTML='';
+ (d.reviews||[]).forEach(function(r){
+  var el=document.createElement('div');el.className='res-item';
+  el.innerHTML='<div class="res-head"><span class="res-name">'+esc(r.author)+'</span><span class="res-date">'+esc(r.date||'')+'</span></div>'+starHTML(r.rating)+'<div class="res-text">'+esc(r.text)+'</div>';
+  L.appendChild(el);
+ });
+ if(n){var ld={"@context":"https://schema.org","@type":"AggregateRating","ratingValue":a,"reviewCount":n};
+  document.querySelectorAll('script[type="application/ld+json"]').forEach(function(sc){
+   try{var j=JSON.parse(sc.textContent);if(j && j["@type"]==="Product"){j.aggregateRating={"@type":"AggregateRating","ratingValue":a,"reviewCount":n,"bestRating":5,"worstRating":1};
+    j.review=(d.reviews||[]).slice(0,10).map(function(r){return {"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":r.rating,"bestRating":5,"worstRating":1},"author":{"@type":"Person","name":r.author},"datePublished":r.date,"reviewBody":r.text};});
+    sc.textContent=JSON.stringify(j);}}catch(e){}
+  });
+ }
+}
+fetch(API+'?id='+encodeURIComponent(PID)).then(function(r){return r.json();}).then(render).catch(function(){});
+var pick=document.getElementById('resPick'),rating=document.getElementById('resRating');
+pick.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var v=+b.dataset.v;rating.value=v;[].forEach.call(pick.children,function(x,i){x.classList.toggle('on',i<v);});});
+document.getElementById('resForm').addEventListener('submit',function(e){
+ e.preventDefault();var m=document.getElementById('resMsg');m.className='res-msg';
+ if(!(+rating.value)){m.textContent='Elegí cuántas estrellas.';m.className='res-msg err';return;}
+ var fd=new FormData(e.target);fd.append('id',PID);
+ var btn=e.target.querySelector('button[type=submit]');btn.disabled=true;
+ fetch(API,{method:'POST',body:fd}).then(function(r){return r.json().then(function(j){return {s:r.status,j:j};});}).then(function(o){
+  btn.disabled=false;
+  if(o.j&&o.j.ok){e.target.reset();[].forEach.call(pick.children,function(x){x.classList.remove('on');});rating.value=0;m.textContent='¡Gracias por tu opinión!';m.className='res-msg ok';render(o.j);}
+  else if(o.s===429){m.textContent='Ya dejaste una opinión de este producto. ¡Gracias!';m.className='res-msg err';}
+  else{m.textContent='Revisá tu nombre y comentario e intentá de nuevo.';m.className='res-msg err';}
+ }).catch(function(){btn.disabled=false;m.textContent='No se pudo enviar. Probá más tarde.';m.className='res-msg err';});
+});
+})();
+</script>
+</section>
 <h2>También te puede servir</h2><div class="rel"><a href="/productos/vinagre-de-limpieza-3-5/"><img src="/productos/img/t/vinagre-de-limpieza-3-5-leon-rojo.jpg" alt="Vinagre de Limpieza 3.5% León Rojo" loading="lazy"><span>Vinagre de Limpieza 3.5%</span></a><a href="/productos/desinfectante/"><img src="/productos/img/t/desinfectante-leon-rojo.jpg" alt="Desinfectante León Rojo" loading="lazy"><span>Desinfectante</span></a><a href="/productos/creolina/"><img src="/productos/img/t/creolina-leon-rojo.jpg" alt="Creolina León Rojo" loading="lazy"><span>Creolina</span></a><a href="/productos/cloro/"><img src="/productos/img/t/cloro-leon-rojo.jpg" alt="Cloro León Rojo" loading="lazy"><span>Cloro</span></a></div>
 </article></main><footer><div class="wrap">© 2026 Químicas Arji WGAC S.A. · Fabricantes de León Rojo desde hace 29 años · Desamparados, San José · Tel. 2250-2064 · WhatsApp 8994-4763 · <a href="/">quimicasarji.com</a></div></footer>
 <script>document.querySelectorAll('.thumbs button').forEach(b=>b.addEventListener('click',()=>{document.querySelector('.gal .main img').src=b.dataset.src;document.querySelectorAll('.thumbs button').forEach(x=>x.setAttribute('aria-current',x===b))}))</script></body></html>
